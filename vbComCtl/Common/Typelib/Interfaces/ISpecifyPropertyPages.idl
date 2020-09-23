@@ -1,0 +1,11 @@
+//From Namespace Edanmo:  http://www.mvps.org/emorcillo/download/vb6/tl_ole.zip
+
+[
+    odl,
+    uuid(B196B28B-BAB4-101A-B69C-00AA00341D07),
+]
+interface ISpecifyPropertyPages : IUnknown {
+
+    HRESULT GetPages(
+        [in, out] CAUUID *pPages);
+}

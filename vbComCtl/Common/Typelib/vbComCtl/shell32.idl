@@ -1,0 +1,36 @@
+[dllname("SHELL32.DLL")]
+
+module SHELL32 {
+
+	[entry("SHBrowseForFolderA")]
+	long SHBrowseForFolder(
+				[in] void* lpbi);
+
+	[entry("SHGetDesktopFolder")]
+	long SHGetDesktopFolder(
+				[in] void* ppshf);
+
+	[entry("SHGetFileInfoA")]
+	long SHGetFileInfo(
+				[in] void* pszPath,
+				[in] long dwAttributes,
+				[in] void* psfi,
+				[in] long cbSizeFileInfo,
+				[in] long uFlags);
+
+	[entry("SHGetMalloc")]
+	long SHGetMalloc(
+				[in] void* ppMalloc);
+
+	[entry("SHGetPathFromIDListA")]
+	long SHGetPathFromIDList(
+				[in] long pIdl,
+				[in] void* pszPath);
+
+	[entry("SHGetSpecialFolderLocation")]
+	long SHGetSpecialFolderLocation(
+				[in] long hWndOwner,
+				[in] long nFolder,
+				[in] long* pIdl);
+
+}

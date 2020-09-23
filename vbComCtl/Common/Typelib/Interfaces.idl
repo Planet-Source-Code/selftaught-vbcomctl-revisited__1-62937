@@ -1,0 +1,61 @@
+[
+    	uuid(30bf730c-e71f-48e8-838f-a53d5fb2c9a6),
+    	helpstring("vbComCtl Support Library Interfaces"),
+]
+
+library Interfaces
+{
+    	importlib("STDOLE32.TLB");
+
+	interface IUnknown;
+	interface IDispatch;
+	interface IPerPropertyBrowsing;
+	interface IOleObject;
+	interface IOleClientSite;
+	interface IOleWindow;
+	interface IOleInPlaceActiveObject;
+	interface IOleControl;
+	interface IOleControlSite;
+	interface IOleInPlaceUIWindow;
+	interface IOleInPlaceFrame;
+	interface IOleInPlaceSite;
+
+	interface IEnumVARIANT;
+	interface IEnumOLEVERB;
+
+	interface ITypeLib;
+	interface ITypeInfo;
+
+	interface IMalloc;
+
+	#include "Interfaces\Wintypes.idl"
+	#include "Interfaces\COMEnums.idl"
+	#include "Interfaces\COMStructures.idl"
+
+	#include "Interfaces\IUnknown.idl"
+	#include "Interfaces\IDispatch.idl"
+	#include "Interfaces\IPerPropertyBrowsing.idl"
+	#include "Interfaces\IOleObject.idl"
+	#include "Interfaces\IOleClientSite.idl"
+	#include "Interfaces\IOleWindow.idl"
+	#include "Interfaces\IOleInPlaceActiveObject.idl"
+	#include "Interfaces\IOleControl.idl"
+	#include "Interfaces\IOleControlSite.idl"
+	#include "Interfaces\IOleInPlaceUIWindow.idl"
+	#include "Interfaces\IOleInPlaceFrame.idl"
+	#include "Interfaces\IOleInPlaceSite.idl"
+
+	#include "Interfaces\IEnumVARIANT.idl"
+	#include "Interfaces\IEnumOLEVERB.idl"
+
+	#include "Interfaces\ITypeInfo.idl"
+	#include "Interfaces\ITypeLib.idl"
+
+	#include "Interfaces\IMalloc.idl"
+	
+	#include "Interfaces\ISHTypes.idl"
+	#include "Interfaces\IEnumIDL.idl"
+	#include "Interfaces\ISHFoldr.idl"
+	#include "Interfaces\ISpecifyPropertyPages.idl"
+
+}

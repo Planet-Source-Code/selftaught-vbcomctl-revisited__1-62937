@@ -1,0 +1,62 @@
+////////////////////////////////////////////////////////////
+// Name : IOleClientSite.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+    	uuid(00000118-0000-0000-C000-000000000046),
+	odl
+]
+
+interface IOleClientSite : IUnknown
+{
+    	typedef IOleClientSite * LPOLECLIENTSITE;
+
+    	HRESULT SaveObject
+    	(
+        	void
+    	);
+
+    	HRESULT GetMoniker
+    	(
+        	[in] DWORD dwAssign,
+        	[in] DWORD dwWhichMoniker,
+        	//[out] IMoniker **ppmk
+        	[out] long **ppmk
+    	);
+
+    	HRESULT GetContainer
+    	(
+        	//[out] IOleContainer **ppContainer
+        	[out] long **ppContainer
+    	);
+
+    	HRESULT ShowObject
+    	(
+        	void
+    	);
+
+    	HRESULT OnShowWindow
+    	(
+        	[in] BOOL fShow
+    	);
+
+    	HRESULT RequestNewObjectLayout
+    	(
+        	void
+    	);
+}

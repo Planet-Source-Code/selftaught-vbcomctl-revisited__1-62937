@@ -1,0 +1,175 @@
+[dllname("KERNEL32.DLL")]
+
+module KERNEL32 {
+
+	[entry("CloseHandle")]
+	long CloseHandle(
+				[in] long hObject);
+
+	[entry("CreateFileA")]
+	long CreateFile(
+				[in] void* lpFileName,
+				[in] long dwDesiredAccess,
+				[in] long dwShareMode,
+				[in] void* lpSecurityAttributes,
+				[in] long dwCreationDisposition,
+				[in] long dwFlagsAndAttributes,
+				[in] long hTemplateFile);
+
+	[entry("GetFileSize")]
+	long GetFileSize(
+				[in] long hFile,
+				[in] long* lpFileSizeHigh);
+
+	[entry("GetFullPathNameA")]
+	long GetFullPathName(
+				[in] void* lpFileName,
+				[in] long nBufferLength,
+				[in] void* lpBuffer,
+				[in] void* lpFilePart);
+
+	[entry("GetProcAddress")]
+	long GetProcAddress(
+				[in] long hModule,
+				[in] void* lpProcName);
+
+	[entry("GetProcessHeap")]
+	long GetProcessHeap(
+);
+
+	[entry("GetTickCount")]
+	long GetTickCount(
+);
+
+	[entry("GetVersion")]
+	long GetVersion(
+);
+
+	[entry("GlobalAlloc")]
+	long GlobalAlloc(
+				[in] long wFlags,
+				[in] long dwBytes);
+
+	[entry("GlobalFree")]
+	long GlobalFree(
+				[in] long hMem);
+
+	[entry("GlobalLock")]
+	long GlobalLock(
+				[in] long hMem);
+
+	[entry("GlobalUnlock")]
+	long GlobalUnlock(
+				[in] long hMem);
+
+	[entry("FreeLibrary")]
+	long FreeLibrary(
+				[in] long hLibModule);
+
+	[entry("GetModuleHandleA")]
+	long GetModuleHandle(
+				[in] void* lpModuleName);
+
+	[entry("HeapAlloc")]
+	long HeapAlloc(
+				[in] long hHeap,
+				[in] long dwFlags,
+				[in] long dwBytes);
+
+	[entry("HeapFree")]
+	long HeapFree(
+				[in] long hHeap,
+				[in] long dwFlags,
+				[in] long lpMem);
+
+	[entry("HeapReAlloc")]
+	long HeapReAlloc(
+				[in] long hHeap,
+				[in] long dwFlags,
+				[in] long lpMem,
+				[in] long dwBytes);
+
+	[entry("HeapSize")]
+	long HeapSize(
+				[in] long hHeap,
+				[in] long dwFlags,
+				[in] long lpMem);
+
+	[entry("LoadLibraryA")]
+	long LoadLibrary(
+				[in] void* lpLibFileName);
+
+	[entry("lstrlenA")]
+	long lstrlen(
+				[in] long lpString);
+
+	[entry("lstrlenW")]
+	long lstrlenW(
+				[in] long lpString);
+
+	[entry("lstrcmpA")]
+	long lstrcmp(
+				[in] long lpString1,
+				[in] long lpString2);
+
+	[entry("lstrcmpiA")]
+	long lstrcmpi(
+				[in] long lpString1,
+				[in] long lpString2);
+
+	[entry("MulDiv")]
+	long MulDiv(
+				[in] long nNumber,
+				[in] long nNumerator,
+				[in] long nDenominator);
+
+	[entry("ReadFile")]
+	long ReadFile(
+				[in] long hFile,
+				[in] void* lpBuffer,
+				[in] long nNumberOfBytesToRead,
+				[in] long* lpNumberOfBytesRead,
+				[in] void* lpOverlapped);
+
+	[entry("WriteFile")]
+	long WriteFile(
+				[in] long hFile,
+				[in] void* lpBuffer,
+				[in] long nNumberOfBytesToWrite,
+				[in] long* lpNumberOfBytesWritten,
+				[in] void* lpOverlapped);
+
+	[entry("RtlMoveMemory")]
+	void CopyMemory(
+				[in] void* Destination,
+				[in] void* Source,
+				[in] long Length);
+
+	[entry("RtlZeroMemory")]
+	void ZeroMemory(
+				[in] void* Destination,
+				[in] long Length);
+
+    [entry("VirtualProtect")]
+    long VirtualProtect(
+                [in] long lpAddress,
+                [in] long dwSize,
+                [in] long flNewProtect,
+                [in] long* lpflOldProtect);
+
+    [entry("Sleep")]
+    void Sleep(
+                [in] long dwMilliseconds);
+
+
+
+	[entry("MultiByteToWideChar")]
+	long MultiByteToWideChar(
+				[in] long CodePage,
+				[in] long dwFlags,
+				[in] void* lpMultiByteStr,
+				[in] long cchMultiByte,
+				[in] void* lpWideCharStr,
+				[in] long cchWideChar);
+
+}

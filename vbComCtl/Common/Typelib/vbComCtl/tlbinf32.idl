@@ -1,0 +1,13 @@
+[dllname("TLBINF32.DLL")]
+
+module TLBINF32 {
+
+	[entry("loword")]
+	short loword(
+				[in] long dword);
+
+	[entry("hiword")]
+	short hiword(
+				[in] long dword);
+
+}

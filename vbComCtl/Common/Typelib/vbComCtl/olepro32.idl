@@ -1,0 +1,18 @@
+[dllname("OLEPRO32.DLL")]
+
+module OLEPRO32 {
+	
+	[entry("OleCreatePictureIndirect")]
+	long OleCreatePictureIndirect(
+				[in] void* lpPictDesc,
+				[in] void* riid,
+				[in] long fPictureOwnsHandle,
+				[in] void* ipic);
+
+	[entry("OleTranslateColor")]
+	long OleTranslateColor(
+				[in] long OLE_COLOR,
+				[in] long hPalette,
+				[in] long* pccolorref);
+	
+}

@@ -1,0 +1,57 @@
+[dllname("MSVBVM60.DLL")]
+
+module MSVBVM60 {
+
+	[entry("VarPtr")]
+	long ArrPtr(
+				[in] SAFEARRAY (void) *Ptr);
+
+	[entry("GetMem4"), propget,]
+	HRESULT __stdcall MemLong(
+			[in] int Address,
+			[out, retval] long *lpRetVal);
+	
+	[entry("PutMem4"), propput,]
+	HRESULT __stdcall MemLong(
+			[in] int Address,
+			[in] int NewValue);
+	
+	[entry("GetMem2"), propget,]
+	HRESULT __stdcall MemWord(
+			[in] int Address,
+			[out, retval] short *lpRetVal);
+	[entry("PutMem2"), propput]
+	HRESULT __stdcall MemWord(
+			[in] int Address,
+			[in] short NewValue);
+
+	[entry("GetMem1"), propget,]
+	HRESULT __stdcall MemByte(
+			[in] int Address,
+			[out, retval] unsigned char *lpRetVal);
+	[entry("PutMem1"), propput]
+	HRESULT __stdcall MemByte(
+			[in] int Address,
+			[in] unsigned char NewValue);
+
+	[entry("PutMem4"), propput,]
+	HRESULT __stdcall ObjectPtr(
+			[in] void *Object,		// IUnknown **			
+			[in] int NewValue);
+
+	[entry("PutMem4"), propput,]
+	HRESULT __stdcall StringPtr(
+			[in] BSTR *Source,
+			[in] long NewValue);
+
+	[entry("GetMem4"), propget,]
+	HRESULT __stdcall SAPtr(
+			[in] SAFEARRAY(void) * Array,
+			[out, retval]   int * lpRetVal);
+	
+	[entry("PutMem4"), propput,]
+	HRESULT __stdcall SAPtr(
+			[in] SAFEARRAY(void) *	Array,
+			[in] int NewValue);
+
+}

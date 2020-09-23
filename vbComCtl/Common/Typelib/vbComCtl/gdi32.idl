@@ -1,0 +1,181 @@
+[dllname("GDI32.DLL")]
+
+module GDI32 {
+
+    [entry("BitBlt")]
+    long BitBlt(
+                [in] long hDestDC,
+                [in] long x,
+                [in] long y,
+                [in] long nWidth,
+                [in] long nHeight,
+                [in] long hSrcDC,
+                [in] long xSrc,
+                [in] long ySrc,
+                [in] long dwRop);
+
+    [entry("CreateBitmapIndirect")]
+    long CreateBitmapIndirect(
+                [in] void* lpBitmap);
+
+    [entry("CreateBrushIndirect")]
+    long CreateBrushIndirect(
+                [in] void* lpLogBrush);
+
+    [entry("CreateCompatibleBitmap")]
+    long CreateCompatibleBitmap(
+                [in] long hdc,
+                [in] long nWidth,
+                [in] long nHeight);
+
+    [entry("CreateCompatibleDC")]
+    long CreateCompatibleDC(
+                [in] long hdc);
+
+    [entry("CreateDIBSection")]
+    long CreateDIBSection(
+                [in] long hdc,
+                [in] void* pBitmapInfo,
+                [in] long un,
+                [in] long* lplpVoid,
+                [in] long handle,
+                [in] long dw);
+
+    [entry("CreateDCA")]
+    long CreateDC(
+                [in] void* lpDriverName,
+                [in] void* lpDeviceName,
+                [in] void* lpOutput,
+                [in] long lpInitData);
+
+    [entry("CreateFontIndirectA")]
+    long CreateFontIndirect(
+                [in] void* lpLogFont);
+
+    [entry("CreatePenIndirect")]
+    long CreatePenIndirect(
+                [in] void* lpLogPen);
+
+    [entry("DeleteDC")]
+    long DeleteDC(
+                [in] long hdc);
+
+    [entry("DeleteObject")]
+    long DeleteObject(
+                [in] long hObject);
+
+    [entry("EndDoc")]
+    long EndDoc(
+                [in] long hdc);
+
+    [entry("EndPage")]
+    long EndPage(
+                [in] long hdc);
+
+    [entry("GetDeviceCaps")]
+    long GetDeviceCaps(
+                [in] long hdc,
+                [in] long nIndex);
+
+    [entry("GetObjectA")]
+    long GetObject(
+                [in] long hObject,
+                [in] long nCount,
+                [in] void* lpObject);
+
+    [entry("GetObjectType")]
+    long GetObjectType(
+                [in] long hgdiobj);
+
+    [entry("GetPixel")]
+    long GetPixel(
+                [in] long hdc,
+                [in] long x,
+                [in] long y);
+
+    [entry("GetTextExtentPoint32A")]
+    long GetTextExtentPoint32(
+                [in] long hdc,
+                [in] void* lpsz,
+                [in] long cbString,
+                [in] void* lpSize);
+
+    [entry("LineTo")]
+    long LineTo(
+                [in] long hdc,
+                [in] long x,
+                [in] long y);
+
+    [entry("MoveToEx")]
+    long MoveToEx(
+                [in] long hdc,
+                [in] long x,
+                [in] long y,
+                [in] void* lpPoint);
+
+    [entry("OffsetWindowOrgEx")]
+    long OffsetWindowOrgEx(
+                [in] long hdc,
+                [in] long nXOffset,
+                [in] long nYOffset,
+                [in] void* pPoint);
+
+    [entry("SelectObject")]
+    long SelectObject(
+                [in] long hdc,
+                [in] long hObject);
+
+    [entry("SetBkColor")]
+    long SetBkColor(
+                [in] long hdc,
+                [in] long crColor);
+
+    [entry("SetBkMode")]
+    long SetBkMode(
+                [in] long hdc,
+                [in] long nBkMode);
+
+    [entry("SetMapMode")]
+    long SetMapMode(
+                [in] long hdc,
+                [in] long nMapMode);
+
+    [entry("SetTextColor")]
+    long SetTextColor(
+                [in] long hdc,
+                [in] long crColor);
+
+    [entry("StartDocA")]
+    long StartDoc(
+                [in] long hdc,
+                [in] void* lpdi);
+
+    [entry("StartPage")]
+    long StartPage(
+                [in] long hdc);
+
+    [entry("StretchDIBits")]
+    long StretchDIBits(
+                [in] long hdc,
+                [in] long x,
+                [in] long y,
+                [in] long dx,
+                [in] long dy,
+                [in] long SrcX,
+                [in] long SrcY,
+                [in] long wSrcWidth,
+                [in] long wSrcHeight,
+                [in] void* lpBits,
+                [in] void* lpBitsInfo,
+                [in] long wUsage,
+                [in] long dwRop);
+
+    [entry("TextOutA")]
+    long TextOut(
+                [in] long hdc,
+                [in] long x,
+                [in] long y,
+                [in] void* lpString,
+                [in] long nCount);
+
+};

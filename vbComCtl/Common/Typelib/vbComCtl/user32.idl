@@ -1,0 +1,573 @@
+[dllname("USER32.DLL")]
+
+module USER32 {
+	
+	[entry("AppendMenuA")]
+	long AppendMenu(
+				[in] long hMenu,
+				[in] long wFlags,
+				[in] long wIDNewItem,
+				[in] void* lpNewItem);
+
+	[entry("ClientToScreen")]
+	long ClientToScreen(
+				[in] long hwnd,
+				[in] void* lpPoint);
+
+	[entry("CopyRect")]
+	long CopyRect(
+				[in] void* lpDestRect,
+				[in] void* lpSourceRect);
+
+	[entry("CreateAcceleratorTableA")]
+	long CreateAcceleratorTable(
+				[in] void* lpaccl,
+				[in] long cEntries);
+
+	[entry("CreateCaret")]
+	long CreateCaret(
+				[in] long hwnd,
+				[in] long hBitmap,
+				[in] long nWidth,
+				[in] long nHeight);
+
+	[entry("CreatePopupMenu")]
+	long CreatePopupMenu(
+);
+
+    [entry("CreateWindowExA")]
+    long CreateWindowEx(
+                [in] long dwExStyle,
+                [in] long lpClassName,
+                [in] long lpWindowName,
+                [in] long dwStyle,
+                [in] long x,
+                [in] long y,
+                [in] long nWidth,
+                [in] long nHeight,
+                [in] long hWndParent,
+                [in] long hMenu,
+                [in] long hInstance,
+                [in] void* lpParam);
+
+	[entry("DestroyAcceleratorTable")]
+	long DestroyAcceleratorTable(
+				[in] long hAccel);
+
+	[entry("DestroyCursor")]
+	long DestroyCursor(
+				[in] long hCursor);
+
+	[entry("DestroyIcon")]
+	long DestroyIcon(
+				[in] long hIcon);
+
+	[entry("DestroyMenu")]
+	long DestroyMenu(
+				[in] long hMenu);
+
+    [entry("DestroyWindow")]
+    long DestroyWindow(
+                [in] long hWnd);
+
+	[entry("DrawEdge")]
+	long DrawEdge(
+				[in] long hdc,
+				[in] void* qrc,
+				[in] long edge,
+				[in] long grfFlags);
+
+	[entry("DrawFocusRect")]
+	long DrawFocusRect(
+				[in] long hdc,
+				[in] void* lpRect);
+
+	[entry("DrawFrameControl")]
+	long DrawFrameControl(
+				[in] long hdc,
+				[in] void* lpRect,
+				[in] long un1,
+				[in] long un2);
+
+	[entry("DrawStateA")]
+	long DrawState(
+				[in] long hdc,
+				[in] long hBrush,
+				[in] long lpDrawStateProc,
+				[in] long lParam,
+				[in] long wParam,
+				[in] long x,
+				[in] long y,
+				[in] long cx,
+				[in] long cy,
+				[in] long fuFlags);
+
+	[entry("DrawTextA")]
+	long DrawText(
+				[in] long hdc,
+				[in] void* lpStr,
+				[in] long nCount,
+				[in] void* lpRect,
+				[in] long wFormat);
+
+	[entry("FindWindowExA")]
+	long FindWindowEx(
+				[in] long hWnd1,
+				[in] long hWnd2,
+				[in] void* lpsz1,
+				[in] void* lpsz2);
+
+	[entry("FillRect")]
+	long FillRect(
+				[in] long hdc,
+				[in] void* lpRect,
+				[in] long hBrush);
+
+	[entry("GetActiveWindow")]
+	long GetActiveWindow(
+);
+
+	[entry("GetClassNameA")]
+	long GetClassName(
+				[in] long hwnd,
+				[in] void* lpClassName,
+				[in] long nMaxCount);
+
+	[entry("GetClientRect")]
+	long GetClientRect(
+				[in] long hwnd,
+				[in] void* lpRect);
+
+	[entry("GetCursorPos")]
+	long GetCursorPos(
+				[in] void* lpPoint);
+
+	[entry("GetDC")]
+	long GetDC(
+				[in] long hwnd);
+
+	[entry("GetFocus")]
+	long GetFocus(
+);
+
+	[entry("GetForegroundWindow")]
+	long GetForegroundWindow(
+);
+
+	[entry("GetKeyboardState")]
+	long GetKeyboardState(
+				[in] byte* pbKeyState);
+
+	[entry("GetMenuItemCount")]
+	long GetMenuItemCount(
+				[in] long hMenu);
+
+	[entry("GetMenuItemInfoA")]
+	long GetMenuItemInfo(
+				[in] long hMenu,
+				[in] long un,
+				[in] long b,
+				[in] void* lpMenuItemInfo);
+
+	[entry("GetScrollInfo")]
+	long GetScrollInfo(
+				[in] long hwnd,
+				[in] long idObject,
+				[in] void* psbi);
+
+	[entry("GetSysColor")]
+	long GetSysColor(
+				[in] long nIndex);
+
+	[entry("GetSysColorBrush")]
+	long GetSysColorBrush(
+				[in] long nIndex);
+
+	[entry("GetParent")]
+	long GetParent(
+				[in] long hwnd);
+
+	[entry("GetWindowLongA")]
+	long GetWindowLong(
+				[in] long hwnd,
+				[in] long nIndex);
+
+	[entry("GetWindowRect")]
+	long GetWindowRect(
+				[in] long hwnd,
+				[in] void* lpRect);
+
+    [entry("GetWindowTextA")]
+    long GetWindowText(
+                [in] long hWnd,
+                [in] long lpString,
+                [in] long cch);
+
+    [entry("GetWindowTextLengthA")]
+    long GetWindowTextLength(
+                [in] long hWnd);
+
+	[entry("HideCaret")]
+	long HideCaret(
+				[in] long hwnd);
+
+	[entry("InflateRect")]
+	long InflateRect(
+				[in] void* lpRect,
+				[in] long x,
+				[in] long y);
+
+	[entry("InvalidateRect")]
+	long InvalidateRect(
+				[in] long hwnd,
+				[in] void* lpRect,
+				[in] long bErase);
+
+	[entry("InsertMenuA")]
+	long InsertMenu(
+				[in] long hMenu,
+				[in] long nPosition,
+				[in] long wFlags,
+				[in] long wIDNewItem,
+				[in] void* lpNewItem);
+
+	[entry("IntersectRect")]
+	long IntersectRect(
+				[in] void* lpDestRect,
+				[in] void* lpSrc1Rect,
+				[in] void* lpSrc2Rect);
+
+	[entry("IsRectEmpty")]
+	long IsRectEmpty(
+				[in] void* lpRect);
+
+	[entry("IsWindow")]
+	long IsWindow(
+				[in] long hwnd);
+
+	[entry("KillTimer")]
+	long KillTimer(
+				[in] long hwnd,
+				[in] long nIDEvent);
+
+	[entry("LoadImageA")]
+	long LoadImage(
+				[in] long hInst,
+				[in] void* lpsz,
+				[in] long un1,
+				[in] long n1,
+				[in] long n2,
+				[in] long un2);
+
+	[entry("MapWindowPoints")]
+	long MapWindowPoints(
+				[in] long hwndFrom,
+				[in] long hwndTo,
+				[in] void* lppt,
+				[in] long cPoints);
+
+	[entry("MenuItemFromPoint")]
+	long MenuItemFromPoint(
+				[in] long hwnd,
+				[in] void hMenu,
+				[in] long x,
+				[in] long y);
+
+	[entry("ModifyMenuA")]
+	long ModifyMenu(
+				[in] long hMenu,
+				[in] long nPosition,
+				[in] long wFlags,
+				[in] long wIDNewItem,
+				[in] void* lpString);
+
+	[entry("MoveWindow")]
+	long MoveWindow(
+				[in] long hwnd,
+				[in] long x,
+				[in] long y,
+				[in] long nWidth,
+				[in] long nHeight,
+				[in] long bRepaint);
+
+	[entry("MsgWaitForMultipleObjects")]
+	long MsgWaitForMultipleObjects(
+				[in] long nCount,
+				[in] long* pHandles,
+				[in] long fWaitAll,
+				[in] long dwMilliseconds,
+				[in] long dwWakeMask);
+
+	[entry("OffsetRect")]
+	long OffsetRect(
+				[in] void* lpRect,
+				[in] long x,
+				[in] long y);
+
+	[entry("PtInRect")]
+	long PtInRect(
+				[in] void* lpRect,
+				[in] long x,
+				[in] long y);
+
+	[entry("RegisterWindowMessageA")]
+	long RegisterWindowMessage(
+				[in] void* lpString);
+
+	[entry("ReleaseCapture")]
+	long ReleaseCapture(
+);
+
+	[entry("ReleaseDC")]
+	long ReleaseDC(
+				[in] long hwnd,
+				[in] long hdc);
+
+	[entry("RemoveMenu")]
+	long RemoveMenu(
+				[in] long hMenu,
+				[in] long nPosition,
+				[in] long wFlags);
+
+	[entry("ScreenToClient")]
+	long ScreenToClient(
+				[in] long hwnd,
+				[in] void* lpPoint);
+
+	[entry("SendMessageA")]
+	long SendMessage(
+				[in] long hwnd,
+				[in] long wMsg,
+				[in] long wParam,
+				[in] long lParam);
+
+	[entry("SendMessageA")]
+	long SendMessageAny(
+				[in] long hwnd,
+				[in] long wMsg,
+				[in] long wParam,
+				[in] void* lParam);
+
+	[entry("SetActiveWindow")]
+	long SetActiveWindow(
+				[in] long hwnd);
+
+	[entry("SetCaretPos")]
+	long SetCaretPos(
+				[in] long x,
+				[in] long y);
+
+	[entry("SetCapture")]
+	long SetCapture(
+				[in] long hwnd);
+
+	[entry("SetFocus")]
+	long SetFocus(
+				[in] long hwnd);
+
+	[entry("SetMenuItemInfoA")]
+	long SetMenuItemInfo(
+				[in] long hMenu,
+				[in] long uItem,
+				[in] long fByPosition,
+				[in] void* lpmii);
+
+	[entry("SetScrollInfo")]
+	long SetScrollInfo(
+				[in] long hwnd,
+				[in] long n,
+				[in] void* lpcScrollInfo,
+				[in] long BOOL);
+
+	[entry("SetTimer")]
+	long SetTimer(
+				[in] long hwnd,
+				[in] long nIDEvent,
+				[in] long uElapse,
+				[in] long lpTimerFunc);
+
+	[entry("SetWindowLongA")]
+	long SetWindowLong(
+				[in] long hwnd,
+				[in] long nIndex,
+				[in] long dwNewLong);
+
+	[entry("ShowCaret")]
+	long ShowCaret(
+				[in] long hwnd);
+
+	[entry("ShowScrollBar")]
+	long ShowScrollBar(
+				[in] long hwnd,
+				[in] long wBar,
+				[in] long bShow);
+
+    [entry("ShowWindow")]
+    long ShowWindow(
+                [in] long hWnd,
+                [in] long nCmdShow);
+
+	[entry("SystemParametersInfoA")]
+	long SystemParametersInfo(
+				[in] long uAction,
+				[in] long uParam,
+				[in] void* lpvParam,
+				[in] long fuWinIni);
+
+	[entry("TrackPopupMenu")]
+	long TrackPopupMenu(
+				[in] long hMenu,
+				[in] long wFlags,
+				[in] long x,
+				[in] long y,
+				[in] long nReserved,
+				[in] long hwnd,
+				[in] void* lprc);
+
+	[entry("TrackPopupMenuEx")]
+	long TrackPopupMenuEx(
+				[in] long hMenu,
+				[in] long un,
+				[in] long n1,
+				[in] long n2,
+				[in] long hwnd,
+				[in] void* lpTPMParams);
+
+	[entry("UnionRect")]
+	long UnionRect(
+				[in] void* lprcDst,
+				[in] void* tlprcSrc1,
+				[in] void* tlprcSrc2);
+
+	[entry("UpdateWindow")]
+	long UpdateWindow(
+				[in] long hwnd);
+
+	[entry("VkKeyScanA")]
+	short VkKeyScan(
+				[in] byte cChar);
+
+	[entry("VkKeyScanW")]
+	short VkKeyScanW(
+				[in] short cChar);
+
+	[entry("keybd_event")]
+	void keybd_event(
+				[in] byte bVk,
+				[in] byte bScan,
+				[in] long dwFlags,
+				[in] long dwExtraInfo);
+
+	[entry("mouse_event")]
+	void mouse_event(
+				[in] long dwFlags,
+				[in] long dx,
+				[in] long dy,
+				[in] long cButtons,
+				[in] long dwExtraInfo);
+
+
+
+	[entry("PostMessageA")]
+	long PostMessage(
+				[in] long hWnd,
+				[in] long wMsg,
+				[in] long wParam,
+				[in] long lParam);
+
+	[entry("SetWindowTextA")]
+	long SetWindowText(
+				[in] long hWnd,
+				[in] long lpString);
+
+	[entry("EnableWindow")]
+	long EnableWindow(
+				[in] long hWnd,
+				[in] long fEnable);
+
+	[entry("RedrawWindow")]
+	long RedrawWindow(
+				[in] long hWnd,
+				[in] void* lprcUpdate,
+				[in] long hrgnUpdate,
+				[in] long fuRedraw);
+
+	[entry("SetWindowPos")]
+	long SetWindowPos(
+				[in] long hWnd,
+				[in] long hWndInsertAfter,
+				[in] long x,
+				[in] long y,
+				[in] long cx,
+				[in] long cy,
+				[in] long wFlags);
+
+	[entry("GetWindowDC")]
+	long GetWindowDC(
+				[in] long hWnd);
+
+	[entry("SetParent")]
+	long SetParent(
+				[in] long hWndChild,
+				[in] long hWndNewParent);
+
+	[entry("GetAsyncKeyState")]
+	short GetAsyncKeyState(
+				[in] long vKey);
+
+	[entry("GetKeyState")]
+	short GetKeyState(
+				[in] long nVirtKey);
+
+	[entry("WindowFromPoint")]
+	long WindowFromPoint(
+				[in] long xPoint,
+				[in] long yPoint);
+
+	[entry("GetSystemMetrics")]
+	long GetSystemMetrics(
+				[in] long nIndex);
+
+    [entry("SetWindowsHookExA")]
+    long SetWindowsHookEx(
+                [in] long idHook,
+                [in] long lpfn,
+                [in] long hmod,
+                [in] long dwThreadId);
+
+    [entry("UnhookWindowsHookEx")]
+    long UnhookWindowsHookEx(
+                [in] long hHook);
+
+    [entry("CallNextHookEx")]
+    long CallNextHookEx(
+                [in] long hHook,
+                [in] long nCode,
+                [in] long wParam,
+                [in] long lParam);
+
+    [entry("GetPropA")]
+    long GetProp(
+                [in] long hWnd,
+                [in] long lpString);
+
+    [entry("RemovePropA")]
+    long RemoveProp(
+                [in] long hWnd,
+                [in] long lpString);
+
+    [entry("SetPropA")]
+    long SetProp(
+                [in] long hWnd,
+                [in] long lpString,
+                [in] long hData);
+
+    [entry("CallWindowProcA")]
+    long CallWindowProc(
+                [in] long lpPrevWndFunc,
+                [in] long hWnd,
+                [in] long msg,
+                [in] long wParam,
+                [in] long lParam);
+
+};

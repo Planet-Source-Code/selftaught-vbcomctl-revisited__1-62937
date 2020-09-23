@@ -1,0 +1,25 @@
+
+//=============================================================
+// Component Object Interface (from VC42\Include\Objidl.idl)
+[
+    uuid(00000002-0000-0000-C000-000000000046),
+    odl
+]
+
+//=============================================================
+interface IMalloc : IUnknown
+{
+    // *** IMalloc methods ***
+    long   Alloc(   [in] ULONG cb);
+
+    long   Realloc( [in] void  *pv, 
+                    [in] ULONG cb);
+
+    void  Free(     [in] void *pv);    
+
+    ULONG GetSize(  [in] void *pv);
+
+    int   DidAlloc( [in] void *pv);
+
+    void  HeapMinimize();
+}

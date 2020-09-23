@@ -1,0 +1,248 @@
+    [
+      odl,
+      uuid(909e9d6f-649e-4f60-9da8-290a3f0ac904),
+      version(1.0),
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface iSubclass : IDispatch {
+        [id(0x00000001)]
+        HRESULT Before(
+                        [in, out] VARIANT_BOOL* bHandled, 
+                        [in, out] long* lReturn, 
+                        [in] long hWnd, 
+                        [in] long uMsg, 
+                        [in] long wParam, 
+                        [in] long lParam);
+
+       [id(0x00000002)]
+        HRESULT After(
+                        [in, out] long* lReturn, 
+                        [in] long hWnd, 
+                        [in] long uMsg, 
+                        [in] long wParam, 
+                        [in] long lParam);
+
+    };
+
+
+    [
+      odl,
+      uuid(c5773a19-d7c9-4333-bc86-c1a9ed073e19),
+      version(1.0),
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface iHook : IDispatch {
+        [id(0x00000001)]
+        HRESULT Before(
+                        [in, out] VARIANT_BOOL* bHandled, 
+                        [in, out] long* lReturn, 
+                        [in] long iType, 
+                        [in] long iCode, 
+                        [in] long wParam, 
+                        [in] long lParam);
+
+       [id(0x00000002)]
+        HRESULT After(
+                        [in, out] long* lReturn, 
+                        [in] long iType, 
+                        [in] long iCode, 
+                        [in] long wParam, 
+                        [in] long lParam);
+    };
+
+    [
+      odl,
+      uuid(e1e1446e-badb-483f-80c2-95aab968acbc),
+      version(1.0),
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface iTimer : IDispatch {
+       [id(0x00000001)]
+        HRESULT Proc(
+                        [in] long iId, 
+                        [in] long iElapsed);
+
+    };
+
+
+    [
+      odl,
+      uuid(2fbfed76-73b8-4b3a-bbac-8766764211ec),
+      version(1.0),
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface iComDlgHook : IDispatch {
+       [id(0x00000001)]
+        HRESULT Proc(
+                        [in] long iDlgType,
+                        [in, out] long* lReturn,
+                        [in] long hWnd,
+						[in] long uMsg,
+						[in] long wParam,
+						[in] long lParam);
+
+    };
+
+	
+	typedef struct tEnum
+	{
+	long iIndex;
+	long iControl;
+	long iData;
+	} tEnum;
+
+    [
+      odl,
+      uuid(c9ca79ae-ea55-4e33-945a-866675c4661f),
+      version(1.0),
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface iEnumerable : IDispatch {
+       [id(0x00000001)]
+        HRESULT GetNextItem(
+                        [in, out] tEnum* tEnum,
+                        [in, out] VARIANT* vNextItem,
+                        [in, out] VARIANT_BOOL* bNoMoreItems);
+
+       [id(0x00000002)]
+        HRESULT Reset(
+                        [in, out] tEnum* tEnum);
+
+       [id(0x00000003)]
+        HRESULT Skip(
+                        [in, out] tEnum* tEnum,
+						[in] long iSkipCount,
+						[in, out] VARIANT_BOOL* bSkippedAll);
+
+       [id(0x00000004)]
+        HRESULT Cleanup(
+                        [in, out] tEnum* tEnum);
+
+	};
+
+    [
+      odl,
+      uuid(d5d3bbe3-db60-4522-af5b-d767fe736ddb),
+      version(1.0),
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface iPerPropertyBrowsingVB : IDispatch {
+		[id(0x00000001)]
+        HRESULT GetPredefinedStrings(
+                        [in, out] VARIANT_BOOL* bHandled,
+						[in] long iDispID,
+						[in, out] IDispatch** oProperties);
+		[id(0x00000002)]
+		HRESULT GetPredefinedValue(
+                        [in, out] VARIANT_BOOL* bHandled,
+						[in] long iDispID,
+						[in] long iCookie,
+						[in, out] VARIANT* vValue);
+	
+    };
+
+    [
+      odl,
+      uuid(38584260-0cfb-45e7-8fbb-5d20b311f5b8),
+      version(1.0),
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface iOleInPlaceActiveObjectVB : IDispatch {
+        [id(0x00000001)]
+        HRESULT TranslateAccelerator(
+                        [in, out] VARIANT_BOOL* bHandled, 
+                        [in, out] long* lReturn, 
+                        [in] long iShift, 
+                        [in] long uMsg, 
+                        [in] long wParam, 
+                        [in] long lParam);
+
+    };
+
+    [
+      odl,
+      uuid(c895c8f9-6564-4123-8760-529f72ab9322),
+      version(1.0),
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface iOleControlVB : IDispatch {
+        [id(0x00000001)]
+        HRESULT GetControlInfo(
+                        [in, out] VARIANT_BOOL* bHandled, 
+                        [in, out] long* iAccelCount, 
+                        [in, out] long* hAccelTable, 
+                        [in, out] long* iFlags);
+
+        [id(0x00000002)]
+        HRESULT OnMnemonic(
+                        [in, out] VARIANT_BOOL* bHandled, 
+                        [in] long iShift, 
+                        [in] long uMsg, 
+                        [in] long wParam, 
+                        [in] long lParam);
+
+    };
+
+
+    [
+      odl,
+      uuid(a6e508d1-3353-11da-9002-c6f4d6587ece),
+      version(1.0),
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface iLVCompare : IDispatch {
+		[id(0x00000001)]
+        HRESULT String(
+                        [in] long lParam1,
+						[in] long lParam2,
+						[out, retval] long* lReturn);
+		[id(0x00000002)]
+        HRESULT StringNoCase(
+                        [in] long lParam1,
+						[in] long lParam2,
+						[out, retval] long* lReturn);
+		[id(0x00000003)]
+        HRESULT Numeric(
+                        [in] long lParam1,
+						[in] long lParam2,
+						[out, retval] long* lReturn);
+		[id(0x00000004)]
+        HRESULT Currency(
+                        [in] long lParam1,
+						[in] long lParam2,
+						[out, retval] long* lReturn);
+		[id(0x00000005)]
+        HRESULT Date(
+                        [in] long lParam1,
+						[in] long lParam2,
+						[out, retval] long* lReturn);
+		[id(0x00000006)]
+        HRESULT Indent(
+                        [in] long lParam1,
+						[in] long lParam2,
+						[out, retval] long* lReturn);
+		[id(0x00000007)]
+        HRESULT Selected(
+                        [in] long lParam1,
+						[in] long lParam2,
+						[out, retval] long* lReturn);
+			
+    };

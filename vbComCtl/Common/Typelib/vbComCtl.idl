@@ -1,0 +1,34 @@
+[
+   uuid(9E458621-FBCB-41F7-B8C9-1984ABD8F7AC),        
+   helpstring("vbComCtl Support Library"),
+   version(1.0)
+]
+
+library vbComCtlTlb {
+	
+	importlib("stdole2.tlb");
+
+	#include "vbComCtl\consts.idl"
+	#include "vbComCtl\structs.idl"
+	#include "vbComCtl\gdi32.idl"
+	#include "vbComCtl\user32.idl"
+	#include "vbComCtl\comctl32.idl"
+	#include "vbComCtl\comdlg32.idl"
+	#include "vbComCtl\kernel32.idl"
+	#include "vbComCtl\msvbvm60.idl"
+	#include "vbComCtl\olepro32.idl"
+	#include "vbComCtl\shell32.idl"
+	#include "vbComCtl\ole32.idl"
+	#include "vbComCtl\oleaut32.idl"
+	#include "vbComCtl\hhctrl.idl"
+	#include "vbComCtl\tlbinf32.idl"
+
+	interface iSubclass;
+	interface iHook;
+	interface iTimer;
+	interface iComDlgHook;
+	interface iEnumerable;
+	
+	#include "vbComCtl\ISubclass.idl"
+
+};

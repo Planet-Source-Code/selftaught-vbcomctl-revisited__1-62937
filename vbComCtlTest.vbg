@@ -1,0 +1,3 @@
+VBGROUP 5.0
+Project=vbcomctl\vbcomctl.vbp
+StartupProject=Test\vbComCtlTest.vbp
