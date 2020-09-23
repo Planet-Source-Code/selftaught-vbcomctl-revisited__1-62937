@@ -1,0 +1,21 @@
+
+
+typedef void SHITEMID;
+
+typedef SHITEMID *LPSHITEMID;
+typedef SHITEMID *LPCSHITEMID;
+
+typedef void ITEMIDLIST;
+
+// typedef UNALIGNED ITEMIDLIST * LPITEMIDLIST;
+// typedef const UNALIGNED ITEMIDLIST * LPCITEMIDLIST;
+typedef LONG LPITEMIDLIST;
+typedef LONG LPCITEMIDLIST;
+
+
+typedef void ESTRRET;
+
+typedef void STRRET;
+
+typedef STRRET *LPSTRRET;
+

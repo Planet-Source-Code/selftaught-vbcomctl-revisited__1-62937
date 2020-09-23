@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////
+// Name : IEnumVARIANT.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+	uuid(00020404-0000-0000-C000-000000000046),
+	odl
+]
+interface IEnumVARIANT : IDispatch
+{
+	HRESULT Next
+	(
+		[in] Long Celt, 
+		[in, out] VARIANT *rgVar,
+		[in] long pCeltFetched
+	);
+
+	HRESULT Skip
+	(
+		[in] Long Celt
+	); 
+
+	HRESULT Reset
+	(
+	);
+		
+	HRESULT Clone
+	(
+		[in, out] IEnumVARIANT** ppEnum
+	); 
+}

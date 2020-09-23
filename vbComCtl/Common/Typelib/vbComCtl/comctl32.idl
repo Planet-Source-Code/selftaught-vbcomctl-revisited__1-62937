@@ -1,0 +1,114 @@
+[dllname("COMCTL32.DLL")]
+
+module COMCTL32 {
+
+	[entry("DllGetVersion")]
+	long DllGetVersion(
+				[in] void* pdvi);
+
+	[entry("InitCommonControlsEx")]
+	long InitCommonControlsEx(
+				[in] void* ICCEx);
+
+	[entry("ImageList_AddIcon")]
+	long ImageList_AddIcon(
+				[in] long hIml,
+				[in] long hIcon);
+
+	[entry("ImageList_AddMasked")]
+	long ImageList_AddMasked(
+				[in] long hImageList,
+				[in] long hbmImage,
+				[in] long crMask);
+
+	[entry("ImageList_BeginDrag")]
+	long ImageList_BeginDrag(
+				[in] long himlTrack,
+				[in] long iTrack,
+				[in] long dxHotspot,
+				[in] long dyHotspot);
+
+	[entry("ImageList_Create")]
+	long ImageList_Create(
+				[in] long MinCx,
+				[in] long MinCy,
+				[in] long Flags,
+				[in] long cInitial,
+				[in] long cGrow);
+
+	[entry("ImageList_Destroy")]
+	long ImageList_Destroy(
+				[in] long hImageList);
+
+	[entry("ImageList_DragEnter")]
+	long ImageList_DragEnter(
+				[in] long hwndLock,
+				[in] long x,
+				[in] long y);
+
+	[entry("ImageList_DragLeave")]
+	long ImageList_DragLeave(
+				[in] long hwndLock);
+
+	[entry("ImageList_DragMove")]
+	long ImageList_DragMove(
+				[in] long x,
+				[in] long y);
+
+	[entry("ImageList_DragShowNolock")]
+	long ImageList_DragShowNolock(
+				[in] long fShow);
+
+	[entry("ImageList_Draw")]
+	long ImageList_Draw(
+				[in] long hIml,
+				[in] long i,
+				[in] long hDcDst,
+				[in] long x,
+				[in] long y,
+				[in] long fStyle);
+
+	[entry("ImageList_DrawEx")]
+	long ImageList_DrawEx(
+				[in] long hIml,
+				[in] long i,
+				[in] long hDcDst,
+				[in] long x,
+				[in] long y,
+				[in] long dx,
+				[in] long dy,
+				[in] long rgbBk,
+				[in] long rgbFg,
+				[in] long fStyle);
+
+	[entry("ImageList_GetIcon")]
+	long ImageList_GetIcon(
+				[in] long hImageList,
+				[in] long ImgIndex,
+				[in] long fuFlags);
+
+	[entry("ImageList_GetIconSize")]
+	long ImageList_GetIconSize(
+				[in] long hIml,
+				[in] long* cx,
+				[in] long* cy);
+
+	[entry("ImageList_GetImageCount")]
+	long ImageList_GetImageCount(
+				[in] long hImageList);
+
+	[entry("ImageList_GetImageRect")]
+	long ImageList_GetImageRect(
+				[in] long hIml,
+				[in] long i,
+				[in] void* prcImage);
+
+	[entry("InitCommonControls")]
+	void InitCommonControls(
+);
+
+	[entry("ImageList_EndDrag")]
+	void ImageList_EndDrag(
+);
+
+}

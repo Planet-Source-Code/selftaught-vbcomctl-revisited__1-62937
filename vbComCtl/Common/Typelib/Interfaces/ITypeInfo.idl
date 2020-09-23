@@ -1,0 +1,163 @@
+////////////////////////////////////////////////////////////
+// Name : ITypeInfo.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+    	uuid(00020401-0000-0000-C000-000000000046),
+	odl
+]
+
+interface ITypeInfo : IUnknown
+{
+    	typedef ITypeInfo *LPTYPEINFO;
+
+    	HRESULT GetTypeAttr
+    	(
+		//[in] TYPEATTR *pptypeattr
+        	[in] long pptypeattr
+    	);
+
+    	HRESULT GetTypeComp
+    	(
+		//[out] ITypeComp **pptcomp
+        	[out] long **ppTComp
+    	);
+
+    	HRESULT GetFuncDesc
+    	(
+        	[in] UINT Index,
+		//[out] FUNCDESC **pppfuncdesc
+		[in] long lpFuncDesc
+
+    	);
+
+    	HRESULT GetVarDesc
+    	(
+        	[in] UINT Index,
+		//[out] VARDESC **ppvardesc
+        	[in] long lpVarDesc
+    	);
+
+    	HRESULT GetNames
+    	(
+        	[in] MEMBERID MemID,
+        	[out] BSTR *rgbstrNames,
+        	[in] UINT cMaxNames,
+        	[out] UINT *pcNames
+    	);
+
+    	HRESULT GetRefTypeOfImplType
+    	(
+        	[in] UINT index,
+		//[out] HREFTYPE *hpreftype
+		[out] ULONG *hpreftype
+    	);
+
+    	HRESULT GetImplTypeFlags
+    	(
+        	[in] UINT index,
+        	[out] INT * pimpltypeflags
+    	);
+
+    	HRESULT GetIDsOfNames
+    	(
+        	[in] OLECHAR **rglpszNames,
+        	[in] UINT cNames,
+        	[out] MEMBERID *rgmemid
+    	);
+
+    	HRESULT Invoke
+    	(
+    	  	[in] void *pvInstance,
+        	[in] MEMBERID memid,
+        	[in] WORD wFlags,
+        	[in] DISPPARAMS *pdispparams,
+        	[out] VARIANT *pvarResult,
+        	[out] EXCEPINFO *pexcepinfo,
+        	[out] UINT *puArgErr
+    	);
+
+    	HRESULT GetDocumentation
+    	(
+        	[in] MEMBERID memid,
+        	[out] BSTR *pbstrName,
+        	[out] BSTR *pbstrDocString,
+        	[out] DWORD *pdwHelpContext,
+        	[out] BSTR * pbstrHelpFile
+    	);
+
+    	HRESULT GetDllEntry
+    	(
+        	[in] MEMBERID memid,
+        	[in] INVOKEKIND invkind,
+        	[out] BSTR *pbstrDllName,
+        	[out] BSTR *pbstrName,
+        	[out] WORD *pwOrdinal
+    	);
+
+    	HRESULT GetRefTypeInfo
+    	(
+		//[in] HREFTYPE hreftype,
+        	[in] ULONG hreftype,
+        	[out] ITypeInfo ** pptinfo
+    	);
+
+    	HRESULT __stdcall AddressOfMember
+    	(
+        	[in] MEMBERID memid,
+        	[in] INVOKEKIND invkind,
+        	[out] void **ppv
+    	);
+
+    	HRESULT CreateInstance
+    	(
+        	[in] IUnknown * puncOuter,
+        	[in] REFIID riid,
+        	[out] void **ppvObj
+    	);
+
+    	HRESULT GetMops
+    	(
+        	[in] MEMBERID memid,
+        	[out] BSTR *pbstrMops
+    	);
+
+    	HRESULT GetContainingTypeLib
+    	(
+		[out] ITypeLib **pptlib,
+        	[out] UINT *pindex
+    	);
+
+    	void ReleaseTypeAttr
+    	(
+		//[in] TYPEATTR *ptypeattr
+        	[in] long ptypeattr
+    	);
+
+    	void ReleaseFuncDesc
+    	(
+		//[in] FUNCDESC *pfuncdesc
+        	[in] long pfuncdesc
+    	);
+
+    	void ReleaseVarDesc
+    	(
+		//[in] VARDESC *pvardesc
+        	[in] long pvardesc
+    	);
+}

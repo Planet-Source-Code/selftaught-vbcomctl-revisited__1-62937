@@ -1,0 +1,66 @@
+////////////////////////////////////////////////////////////
+// Name : IOleInPlaceFrame.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+    	uuid(00000116-0000-0000-C000-000000000046),
+	odl
+]
+
+interface IOleInPlaceFrame : IOleInPlaceUIWindow
+{
+
+    	typedef IOleInPlaceFrame *LPOLEINPLACEFRAME;
+
+    	typedef HGLOBAL HOLEMENU;
+
+    	HRESULT InsertMenus
+    	(
+        	[in] HMENU hMenuShared,
+        	//[in,out] LPOLEMENUGROUPWIDTHS lpMenuWidths
+		[in] long lpMenuWidths
+    	);
+
+    	HRESULT SetMenu
+    	(
+        	[in] HMENU hMenuShared,
+        	[in] HOLEMENU hOleMenu,
+        	[in] HWND hWndActiveObject
+    	);
+
+    	HRESULT RemoveMenus
+    	(
+        	[in] HMENU hMenuShared
+    	);
+
+    	HRESULT SetStatusText
+    	(
+        	[in] LPCOLESTR pszStatusText
+    	);
+
+    	HRESULT EnableModeless
+    	(
+        	[in] BOOL fEnable
+    	);
+
+    	HRESULT TranslateAccelerator
+    	(
+        	[in] LPMSG lpMsg,
+        	[in] WORD wID
+    	);
+}

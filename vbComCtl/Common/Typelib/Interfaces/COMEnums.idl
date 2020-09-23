@@ -1,0 +1,50 @@
+////////////////////////////////////////////////////////////
+// Name : COMEnums.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+typedef long OLEGETMONIKER;
+typedef long OLEWHICHMK;
+typedef long USERCLASSTYPE;
+typedef long OLEMISC;
+typedef long OLECLOSE;
+typedef long CTRLINFOCONSTANTS;
+typedef long XFORMCOORDS;
+typedef long OLEVERBATTRIB; // bitwise
+typedef long DVASPECT;
+typedef long DVASPECT2;
+typedef long STGTY;
+typedef long STREAM_SEEK;
+typedef long LOCKTYPE;
+typedef long TYPEKIND;
+typedef long CALLCONV;
+typedef long FUNCKIND;
+typedef long INVOKEKIND;
+typedef long FUNCFLAGS;
+typedef long VARENUM;
+typedef long SYSKIND;
+typedef long LIBFLAGS;
+typedef long REGKIND;
+typedef long PARAMFLAGS;
+typedef long IDLFLAGS;
+typedef long TYPEFLAGS; 
+typedef long VARKIND;
+typedef long VARFLAGS;
+typedef long IMPLTYPEFLAGS;
+
+typedef long SHGDN;
+typedef long SHCONTF;
+typedef long SFGAO;

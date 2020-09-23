@@ -1,0 +1,29 @@
+[dllname("OLEAUT32.DLL")]
+
+module OLEAUT32 {
+
+	[entry("SysAllocStringByteLen")]
+	long SysAllocStringByteLen(
+				[in] long pszString,
+				[in] long lLenB);
+
+	[entry("SysFreeString")]
+	long SysFreeString(
+				[in] long pszString);
+
+
+	[entry("OleCreatePropertyFrame")]
+	long OleCreatePropertyFrame(
+				[in] long hWndOwner,
+				[in] long x,
+				[in] long y,
+				[in] void *lpszCaption,
+				[in] long cObjects,
+				[in] void* ppUnk,
+				[in] long cPages,
+				[in] long pPageClsID,
+				[in] long lcid,
+				[in] long dwReserved,
+				[in] void* pvReserved);
+
+}

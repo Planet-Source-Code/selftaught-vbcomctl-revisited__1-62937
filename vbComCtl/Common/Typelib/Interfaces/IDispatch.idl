@@ -1,0 +1,71 @@
+////////////////////////////////////////////////////////////
+// Name : IDispatch.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+	uuid(00020400-0000-0000-C000-000000000046),
+	odl
+]
+interface IDispatch : IUnKnown
+{
+	typedef IDispatch * LPDISPATCH;
+
+	HRESULT GetTypeInfoCount
+	(
+		[out] UINT *pctInfo
+	);
+
+    	HRESULT GetTypeInfo
+	(
+        	[in] UINT itinfo,
+        	[in] LCID lcid,
+        	[out] ITypeInfo ** pptinfo
+	);
+
+    	HRESULT GetIDsOfNames
+	(
+        	[in] REFIID riid,
+        	[in] LPOLESTR *rgszNames,
+        	[in] UINT cNames,
+        	[in] LCID lcid,
+        	[in, out] DISPID *rgdispid
+	);
+
+    	HRESULT Invoke
+	(
+        	[in] DISPID dispidMember,
+        	[in] REFIID riid,
+        	[in] LCID lcid,
+        	[in] WORD wFlags,
+        	[in] DISPPARAMS *pdispparams,
+        	[in, out] VARIANT *pvarResult,
+        	//[out] EXCEPINFO *pexcepinfo,
+        	[out] long *lpExcepInfo,
+        	[out] UINT *puArgErr
+	);
+}
+
+#define DISPID_UNKNOWN       	= -1;
+#define DISPID_VALUE         	= 0;
+#define DISPID_PROPERTYPUT 	= -3;
+#define DISPID_NEWENUM  	= -4;
+#define DISPID_EVALUATE 	= -5;
+#define DISPID_CONSTRUCTOR 	= -6;
+#define DISPID_DESTRUCTOR 	= -7;
+#define DISPID_COLLECT 		= -8;
+

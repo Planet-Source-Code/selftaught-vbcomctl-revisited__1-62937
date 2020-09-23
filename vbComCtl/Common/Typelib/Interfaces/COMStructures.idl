@@ -1,0 +1,95 @@
+////////////////////////////////////////////////////////////
+// Name : COMStructures.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+typedef void POINT;
+typedef void POINTF;
+typedef void *LPPOINT;
+typedef void *LPPOINTF;
+
+
+typedef void SIZE;
+typedef SIZE * LPSIZE;
+
+
+
+
+
+typedef void RECT;
+typedef RECT * LPRECT;
+
+typedef void MSG;
+typedef MSG * LPMSG;
+
+typedef void ACCEL;
+typedef ACCEL * LPACCEL;
+
+typedef void CONTROLINFO;
+typedef CONTROLINFO * LPCONTROLINFO;
+
+typedef void OLEVERBSTRUCT;
+typedef OLEVERBSTRUCT * LPOLEVERB;
+
+typedef void OLEINPLACEFRAMEINFO;
+typedef OLEINPLACEFRAMEINFO * LPOLEINPLACEFRAMEINFO;
+
+typedef void OLEMENUGROUPWIDTHS;
+typedef OLEMENUGROUPWIDTHS * LPOLEMENUGROUPWIDTHS;
+
+typedef void CALPOLESTR;
+typedef CALPOLESTR * LPCALPOLESTR;
+
+typedef void CADWORD;
+typedef CADWORD * LPCADWORD;
+
+typedef void TYPEDESC;
+typedef TYPEDESC * LPTYPEDESC;
+
+typedef void ARRAYDESC;
+
+typedef void PARAMDESCEX;
+typedef PARAMDESCEX * LPPARAMDESCEX;
+
+typedef void PARAMDESC;
+typedef PARAMDESC * LPPARAMDESC;
+
+typedef void IDLDESC;
+typedef IDLDESC * LPIDLDESC;
+
+typedef void TYPEATTR;
+typedef TYPEATTR * LPTYPEATTR;
+
+typedef void ELEMDESC;
+typedef ELEMDESC * LPELEMDESC;
+
+typedef void FUNCDESC;
+typedef FUNCDESC * LPFUNCDESC;
+
+typedef void VARDESC;
+typedef VARDESC * LPVARDESC;
+
+typedef void STATSTG;
+
+typedef void DISPPARAMS;
+
+typedef void TLIBATTR;
+typedef TLIBATTR * LPTLIBATTR;
+
+typedef void PROPPAGEINFO;
+typedef PROPPAGEINFO * LPPROPPAGEINFO;
+
+typedef void CAUUID;

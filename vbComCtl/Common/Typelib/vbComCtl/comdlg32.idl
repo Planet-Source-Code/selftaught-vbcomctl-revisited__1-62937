@@ -1,0 +1,33 @@
+[dllname("COMDLG32.DLL")]
+
+module COMDLG32 {
+
+	[entry("ChooseColorA")]
+	long ChooseColor(
+				[in] void* Color);
+
+	[entry("ChooseFontA")]
+	long ChooseFont(
+				[in] void* chfont);
+
+	[entry("CommDlgExtendedError")]
+	long CommDlgExtendedError(
+);
+
+	[entry("GetOpenFileNameA")]
+	long GetOpenFileName(
+				[in] void* File);
+
+	[entry("GetSaveFileNameA")]
+	long GetSaveFileName(
+				[in] void* File);
+
+	[entry("PageSetupDlgA")]
+	long PageSetupDlg(
+				[in] void* pPagesetupdlg);
+
+	[entry("PrintDlgA")]
+	long PrintDlg(
+				[in] void* pPrintdlg);
+
+}

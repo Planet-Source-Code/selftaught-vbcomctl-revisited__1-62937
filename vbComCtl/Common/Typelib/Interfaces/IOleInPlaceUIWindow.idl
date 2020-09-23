@@ -1,0 +1,59 @@
+////////////////////////////////////////////////////////////
+// Name : IOleInPlaceUIWindow.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+    	uuid(00000115-0000-0000-C000-000000000046),
+	odl
+]
+
+interface IOleInPlaceUIWindow : IOleWindow
+{
+
+    	typedef IOleInPlaceUIWindow *LPOLEINPLACEUIWINDOW;
+
+    	typedef RECT BORDERWIDTHS;
+
+    	typedef LPRECT LPBORDERWIDTHS;
+
+    	HRESULT GetBorder
+    	(
+        	//[out] LPRECT lprectBorder
+		[in] long lprectBorder
+
+    	);
+
+    	HRESULT RequestBorderSpace
+    	(
+        	//[in] LPBORDERWIDTHS pborderwidths
+		[in] long pBorderWidths
+
+    	);
+
+    	HRESULT SetBorderSpace
+    	(
+        	//[in] LPBORDERWIDTHS pborderwidths
+		[in] long pBorderWidths
+    	);
+
+  	HRESULT SetActiveObject
+    	(
+        	[in] IOleInPlaceActiveObject *pActiveObject,
+    		[in] LPCOLESTR pszObjName
+    	);
+}

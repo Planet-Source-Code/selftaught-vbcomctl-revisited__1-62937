@@ -1,0 +1,48 @@
+////////////////////////////////////////////////////////////
+// Name : IOleControl.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+    	uuid(B196B288-BAB4-101A-B69C-00AA00341D07),
+	odl
+]
+
+interface IOleControl : IUnknown
+{
+    	typedef IOleControl * LPOLECONTROL;
+
+	LONG GetControlInfo
+	(
+      	[out] CONTROLINFO * pCI
+      );
+
+	LONG OnMnemonic
+	(
+      	[in] LONG pMsg
+      );
+
+	LONG OnAmbientPropertyChange
+	(
+            [in] DISPID dispID
+      );
+
+    LONG FreezeEvents
+	(
+      	[in] BOOL bFreeze
+      );
+}

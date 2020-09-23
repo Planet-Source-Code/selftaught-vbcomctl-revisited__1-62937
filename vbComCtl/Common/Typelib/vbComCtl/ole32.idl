@@ -1,0 +1,23 @@
+[dllname("OLE32.DLL")]
+
+module OLE32 {
+
+	[entry("CoInitialize")]
+	long CoInitialize(
+				[in] long pvReserved);
+
+	[entry("CoUninitialize")]
+	long CoUninitialize(
+				void);
+
+	[entry("CoTaskMemFree")]
+	long CoTaskMemFree(
+				[in] long pv);
+
+    [entry("CoTaskMemAlloc")]
+    long CoTaskMemAlloc(
+                [in] long cBytes);
+
+
+
+}

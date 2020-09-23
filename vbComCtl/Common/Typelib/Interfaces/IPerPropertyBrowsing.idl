@@ -1,0 +1,51 @@
+////////////////////////////////////////////////////////////
+// Name : IPerPropertyBrowsing.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+	
+[
+	uuid(376BD3AA-3845-101B-84ED-08002B2EC713),
+	odl
+]
+interface IPerPropertyBrowsing : IDispatch
+{
+	LONG GetDisplayString
+	(
+		[in] DISPID DispID, 
+		[out] BSTR * DisplayName
+	);
+
+	LONG MapPropertyToPage
+	(
+		[in] DISPID DispID, 
+		[out] CLSID * pClsID
+	);
+
+	LONG GetPredefinedStrings
+	(
+		[in] DISPID DispID, 
+      	[out] CALPOLESTR * pCaStringsOut,
+            [out] CADWORD * pCaCookiesOut
+	);
+		
+	LONG GetPredefinedValue
+	(
+		[in] DISPID DispID, 
+		[in] DWORD dwCookie, 
+		[out] VARIANT * pVarOut
+	);
+}

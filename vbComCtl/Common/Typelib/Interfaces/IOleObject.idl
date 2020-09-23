@@ -1,0 +1,159 @@
+////////////////////////////////////////////////////////////
+// Name : IOleObject.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+    	uuid(00000112-0000-0000-C000-000000000046),
+	odl
+]
+
+interface IOleObject : IUnknown
+{
+    	typedef IOleObject *LPOLEOBJECT;
+
+    	HRESULT SetClientSite
+    	(
+        	[in] IOleClientSite *pClientSite
+    	);
+
+    	HRESULT GetClientSite
+    	(
+        	[out] IOleClientSite **ppClientSite
+    	);
+
+    	HRESULT SetHostNames
+    	(
+        	[in] LPCOLESTR szContainerApp,
+        	[in] LPCOLESTR szContainerObj
+    	);
+
+    	HRESULT Close
+    	(
+        	[in] DWORD dwSaveOption
+    	);
+
+    	HRESULT SetMoniker
+    	(
+        	[in] DWORD dwWhichMoniker,
+        	//[in] IMoniker *pmk
+		[in] long *pMk
+
+    	);
+
+    	HRESULT GetMoniker
+    	(
+        	[in] DWORD dwAssign,
+        	[in] DWORD dwWhichMoniker,
+        	//[out] IMoniker **ppmk
+        	[out] long **ppMk
+    	);
+
+    	HRESULT InitFromData
+    	(
+       	//[in] IDataObject *pDataObject,
+        	[in] long *pDataObject,
+        	[in] BOOL fCreation,
+        	[in] DWORD dwReserved
+    	);
+
+    	HRESULT GetClipboardData
+    	(
+        	[in] DWORD dwReserved,
+        	//[out] IDataObject **ppDataObject
+        	[out] long **ppDataObject
+    	);
+
+    	HRESULT DoVerb
+    	(
+        	[in] LONG iVerb,
+        	[in] LPMSG lpMsg,
+        	[in] IOleClientSite *pActiveSite,
+        	[in] LONG lIndex,
+        	[in] HWND hWndParent,
+        	[in] LPRECT lprcPosRect
+    	);
+
+    	HRESULT EnumVerbs
+    	(
+        	[out] IEnumOLEVERB **ppEnumOleVerb
+    	);
+
+    	HRESULT Update
+    	(
+        	void
+    	);
+
+    	HRESULT IsUpToDate
+    	(
+        	void
+    	);
+
+    	HRESULT GetUserClassID
+    	(
+        	[out] CLSID *pClsid
+    	);
+
+    	HRESULT GetUserType
+    	(
+        	[in] DWORD dwFormOfType,
+        	[out] LPOLESTR *pszUserType
+    	);
+
+    	HRESULT SetExtent
+    	(
+        	[in] DWORD dwDrawAspect,
+        	[in] SIZE *pSize
+    	);
+
+    	HRESULT GetExtent
+    	(
+        	[in] DWORD dwDrawAspect,
+        	//[out] SIZE *psizel
+		[in] DWORD lpSize
+    	);
+
+    	HRESULT Advise
+    	(
+        	//[in] IAdviseSink *pAdvSink,
+        	[in] long *pAdvSink,
+        	[out] DWORD *pdwConnection
+    	);
+
+    	HRESULT Unadvise
+    	(
+        	[in] DWORD dwConnection
+    	);
+
+    	HRESULT EnumAdvise
+    	(
+        	//[out] IEnumSTATDATA **ppenumAdvise
+        	[out] long **ppEnumAdvise
+    	);
+
+    	HRESULT GetMiscStatus
+    	(
+        	[in] DWORD dwAspect,
+        	[out] DWORD *pdwStatus
+    	);
+
+    	HRESULT SetColorScheme
+    	(
+        	//[in] LOGPALETTE *pLogpal
+        	[in] long *pLogPal
+    	);
+}

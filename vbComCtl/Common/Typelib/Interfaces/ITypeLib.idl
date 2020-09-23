@@ -1,0 +1,95 @@
+////////////////////////////////////////////////////////////
+// Name : ITypeLib.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+    	uuid(00020402-0000-0000-C000-000000000046),
+	odl
+]
+
+interface ITypeLib : IUnknown
+{
+    	typedef ITypeLib * LPTYPELIB;
+
+    	UINT GetTypeInfoCount
+	(
+      	void
+      );
+
+    	HRESULT GetTypeInfo
+	(
+      	[in]  UINT index,
+	      [out] ITypeInfo ** ppTInfo
+      );
+
+    	HRESULT GetTypeInfoType
+	(
+      	[in]  UINT index,
+      	[out] TYPEKIND * pTKind
+      );
+
+	HRESULT GetTypeInfoOfGuid
+	(
+      	[in]  REFGUID guid,
+      	[out] ITypeInfo ** ppTinfo
+	);
+
+    	HRESULT GetLibAttr
+	(
+      	//[out] TLIBATTR ** ppTLibAttr
+        	[in] long ppTLibAttr
+	);
+
+    	HRESULT GetTypeComp
+	(
+      		//[out] ITypeComp ** ppTComp
+		[out] long * lpTComp
+	);
+
+    	HRESULT GetDocumentation
+	(
+      	[in]  INT index,
+            [out] BSTR * pBstrName,
+            [out] BSTR * pBstrDocString,
+            [out] DWORD * pdwHelpContext,
+            [out] BSTR * pBstrHelpFile
+	);
+
+    	HRESULT IsName
+	(
+      		[in, out] LPOLESTR szNameBuf,
+            	[in] ULONG lHashVal,
+            	[out] BOOL * pfName
+	);
+
+    	HRESULT FindName
+	(
+      	[in, out] LPOLESTR szNameBuf,
+            [in] ULONG lHashVal,
+            [out] ITypeInfo **ppTInfo,
+            [out] MEMBERID * rgMemId,
+            [in, out] USHORT * pcFound
+	);
+
+    	void ReleaseTLibAttr
+	(
+      	//[in] TLIBATTR * pTLibAttr
+		[in] long pTLibAttr
+
+	);
+}

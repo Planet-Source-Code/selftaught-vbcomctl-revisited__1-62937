@@ -1,0 +1,1080 @@
+
+//#define CCHDEVICENAME 32;
+//#define CCHFORMNAME 32;
+//#define LF_FACESIZE 32;
+//#define MAX_TAB_STOPS 32;
+
+typedef long LPCFHOOKPROC;
+typedef long LPOFNHOOKPROC;
+typedef long LPCITEMIDLIST;
+typedef long BFFCALLBACK;
+typedef long LPCCHOOKPROC;
+typedef long LPPAGESETUPHOOK;
+typedef long LPPAGEPAINTHOOK;
+typedef long LPPRINTHOOKPROC;
+typedef long LPSETUPHOOKPROC;
+typedef long ULONG_PTR;
+typedef long INT_PTR;
+typedef long HDITEM;
+typedef long PUINT;
+typedef long EDITSTREAMCALLBACK;
+typedef long DWORD_PTR;
+typedef long HTREEITEM;
+typedef long HGLOBAL;
+typedef long HBITMAP;
+typedef long HDC;
+typedef long HMENU;
+typedef long HWND;
+typedef long DWORD;
+typedef long UINT;
+typedef long COLORREF;
+typedef long HINSTANCE;
+typedef long WPARAM;
+typedef long LPARAM;
+typedef long LPLOGFONT;
+typedef long LPVOID;
+typedef long ULONG;
+typedef long LCID;
+typedef long BOOL;
+
+typedef long DISPID;
+typedef long MEMBERID;
+typedef long TYPEKIND;
+typedef long FUNCKIND;
+typedef long INVOKEKIND;
+typedef long CALLCONV;
+typedef long VARKIND;
+typedef long SYSKIND;
+
+typedef long LPCTSTR;
+typedef long LPTSTR;
+//typedef long LPWSTR;
+//typedef long LPSTR;
+
+
+typedef short WORD;
+typedef short USHORT;
+
+typedef unsigned char TCHAR;
+typedef unsigned char BYTE;
+
+typedef float           FLOAT;
+
+typedef struct DEVMODE { 
+	BYTE	dmDeviceName[32]; 
+	WORD	dmSpecVersion; 
+	WORD	dmDriverVersion; 
+	WORD	dmSize; 
+	WORD	dmDriverExtra; 
+	DWORD	dmFields; 
+	//union {
+	//	struct {
+			short	dmOrientation;
+			short	dmPaperSize;
+			short	dmPaperLength;
+			short	dmPaperWidth;
+			short	dmScale; 
+			short	dmCopies; 
+			short	dmDefaultSource; 
+			short	dmPrintQuality; 
+	//	};
+	//	POINTL	dmPosition;
+	//	DWORD	dmDisplayOrientation;
+	//	DWORD	dmDisplayFixedOutput;
+	//};
+	short	dmColor; 
+	short	dmDuplex; 
+	short	dmYResolution; 
+	short	dmTTOption; 
+	short	dmCollate; 
+	BYTE	dmFormName[32]; 
+	WORD	dmLogPixels; 
+	DWORD	dmBitsPerPel; 
+	DWORD	dmPelsWidth; 
+	DWORD	dmPelsHeight; 
+	//union {
+		DWORD	dmDisplayFlags; 
+		DWORD	dmNup;
+	//};
+	//DWORD	dmDisplayFrequency; 
+//#if(WINVER >= 0x0400) 
+//	DWORD	dmICMMethod;
+//	DWORD	dmICMIntent;
+//	DWORD	dmMediaType;
+//	DWORD	dmDitherType;
+//	DWORD	dmReserved1;
+//	DWORD	dmReserved2;
+//#if (WINVER >= 0x0500) || (_WIN32_WINNT >= 0x0400)
+//	DWORD	dmPanningWidth;
+//	DWORD	dmPanningHeight;
+//#endif
+//#endif // WINVER >= 0x0400 
+} DEVMODE; 
+
+typedef struct LOGFONT { 
+  LONG		lfHeight; 
+  LONG		lfWidth; 
+  LONG		lfEscapement; 
+  LONG		lfOrientation; 
+  LONG		lfWeight; 
+  BYTE		lfItalic; 
+  BYTE		lfUnderline; 
+  BYTE		lfStrikeOut; 
+  BYTE		lfCharSet; 
+  BYTE		lfOutPrecision; 
+  BYTE		lfClipPrecision; 
+  BYTE		lfQuality; 
+  BYTE		lfPitchAndFamily; 
+  TCHAR		lfFaceName[32]; 
+} LOGFONT; 
+
+typedef struct NONCLIENTMETRICS {
+	UINT		cbSize;
+	int 		iBorderWidth;
+	int 		iScrollWidth;
+	int 		iScrollHeight;
+	int 		iCaptionWidth;
+	int 		iCaptionHeight;
+	LOGFONT		lfCaptionFont;
+	int			iSmCaptionWidth;
+	int			iSmCaptionHeight;
+	LOGFONT		lfSmCaptionFont;
+	int			iMenuWidth;
+	int			iMenuHeight;
+	LOGFONT		lfMenuFont;
+	LOGFONT		lfStatusFont;
+	LOGFONT		lfMessageFont;
+	BYTE		Padding[16];
+} NONCLIENTMETRICS;
+
+typedef struct CHOOSEFONT {
+    DWORD		lStructSize;
+    HWND		hwndOwner;
+    HDC			hDC;
+    LPLOGFONT	lpLogFont;
+    INT			iPointSize;
+    DWORD		Flags;
+    COLORREF	rgbColors;
+    LPARAM		lCustData;
+    LPCFHOOKPROC lpfnHook;
+    long		lpTemplateName; //LPCTSTR
+    HINSTANCE	hInstance;
+    long		lpszStyle; //LPTSTR
+    WORD		nFontType;
+    INT			nSizeMin;
+	INT			nSizeMax;
+} CHOOSEFONT;
+
+typedef struct SYSTEMTIME {
+	WORD	wYear;
+	WORD	wMonth;
+	WORD	wDayOfWeek;
+	WORD	wDay;
+	WORD	wHour;
+	WORD	wMinute;
+	WORD	wSecond;
+	WORD	wMilliseconds;
+} SYSTEMTIME;
+
+typedef struct NMHDR {
+	HWND	hwndFrom;
+	UINT	idFrom;
+	UINT	code;
+} NMHDR;
+
+typedef struct GUID {
+	long	Data1;
+	short	Data2;
+	short	Data3;
+	unsigned char Data4[8];
+} GUID;
+
+typedef GUID REFIID;
+
+typedef struct PICTDESC { 
+	UINT	cbSizeOfStruct; 
+	UINT	picType; 
+	long	hImage;
+	long	xExt;
+	long	yExt;
+
+//	union { 
+//		struct { 
+//			HBITMAP hbitmap; 
+//			HPALETTE hpal; 
+//		};
+//		struct { 
+//			HMETAFILE hmeta; 
+//			int xExt; 
+//			int yExt; 
+//		}; 
+//		struct { 
+//			HICON hicon; 
+//		} icon; 
+//		struct { 
+//			HENHMETAFILE hemf; 
+//		}; 
+//	};
+} PICTDESC;
+
+
+typedef struct INITCOMMONCONTROLSEX {
+	DWORD	dwSize;
+	DWORD	dwICC;
+} INITCOMMONCONTROLSEX;
+
+//unsupported on <= IE 3.xx
+typedef struct DLLVERSIONINFO {
+	DWORD	cbSize;
+	DWORD	dwMajorVersion;
+	DWORD	dwMinorVersion;
+	DWORD	dwBuildNumber;
+	DWORD	dwPlatformID;
+} DLLVERSIONINFO;
+
+typedef struct OPENFILENAME { 
+	DWORD         lStructSize; 
+	HWND          hwndOwner; 
+	HINSTANCE     hInstance; 
+	long          lpstrFilter; //LPCTSTR
+	long          lpstrCustomFilter; //LPTSTR
+	DWORD         nMaxCustFilter; 
+	DWORD         nFilterIndex; 
+	long          lpstrFile; //LPTSTR
+	DWORD         nMaxFile; 
+	long          lpstrFileTitle; //LPTSTR
+	DWORD         nMaxFileTitle; 
+	long          lpstrInitialDir; //LPCTSTR
+	long          lpstrTitle; //LPCTSTR
+	DWORD         Flags; 
+	WORD          nFileOffset; 
+	WORD          nFileExtension; 
+	long          lpstrDefExt; //LPCTSTR
+	LPARAM        lCustData; 
+	LPOFNHOOKPROC lpfnHook; 
+	long          lpTemplateName; //LPCTSTR
+//#if (_WIN32_WINNT >= 0x0500)
+//	void *        pvReserved;
+//	DWORD         dwReserved;
+//	DWORD         FlagsEx;
+//#endif // (_WIN32_WINNT >= 0x0500)
+} OPENFILENAME;
+
+typedef struct BROWSEINFO {
+	HWND			hwndOwner;
+	LPCITEMIDLIST	pidlRoot;
+	long			pszDisplayName; //LPTSTR
+	long			lpszTitle; //LPCTSTR
+	UINT			ulFlags;
+	BFFCALLBACK		lpfn;
+	LPARAM			lParam;
+	int				iImage;
+} BROWSEINFO;
+
+typedef struct CHOOSECOLOR {
+	DWORD			lStructSize;
+	HWND			hwndOwner;
+	HWND			hInstance;
+	COLORREF		rgbResult;
+	COLORREF		lpCustColors;
+	DWORD			Flags;
+	LPARAM			lCustData;
+	LPCCHOOKPROC	lpfnHook;
+	long			lpTemplateName; //LPCTSTR
+} CHOOSECOLOR;
+
+typedef struct RECT { 
+	LONG	left; 
+	LONG	top; 
+	LONG	right; 
+	LONG	bottom; 
+} RECT;
+
+typedef struct POINT {
+   LONG		x;
+   LONG		y;
+} POINT;
+
+typedef struct PAGESETUPDLG {
+	DWORD			lStructSize;
+	HWND			hwndOwner;
+	HGLOBAL			hDevMode;
+	HGLOBAL			hDevNames;
+	DWORD			Flags;
+	POINT			ptPaperSize;
+	RECT			rtMinMargin;
+	RECT			rtMargin;
+	HINSTANCE		hInstance;
+	LPARAM			lCustData;
+	LPPAGESETUPHOOK	lpfnPageSetupHook;
+	LPPAGEPAINTHOOK	lpfnPagePaintHook;
+	long			lpPageSetupTemplateName; //LPCTSTR
+	HGLOBAL			hPageSetupTemplate;
+} PAGESETUPDLG;
+
+typedef struct DEVNAMES {
+	WORD	wDriverOffset;
+	WORD	wDeviceOffset;
+	WORD	wOutputOffset;
+	WORD	wDefault;
+} DEVNAMES;
+
+#pragma pack(2)
+typedef struct PRINTDLG {
+    DWORD lStructSize;
+    HWND hwndOwner;
+    HGLOBAL hDevMode;
+    HGLOBAL hDevNames;
+    HDC hDC;
+    DWORD Flags;
+    WORD nFromPage;
+    WORD nToPage;
+    WORD nMinPage;
+    WORD nMaxPage;
+    WORD nCopies;
+    HINSTANCE hInstance;
+    LPARAM lCustData;
+    LPPRINTHOOKPROC lpfnPrintHook;
+    LPSETUPHOOKPROC lpfnSetupHook;
+    long lpPrintTemplateName; //LPCTSTR
+    long lpSetupTemplateName; //LPCTSTR
+    HGLOBAL hPrintTemplate;
+    HGLOBAL hSetupTemplate;
+} PRINTDLG;
+#pragma pack()
+
+typedef struct HH_FTS_QUERY {
+	int		cbStruct;
+	BOOL	fUniCodeStrings;
+	long	pszSearchQuery; //LPCTSTR
+	LONG	iProximity;
+	BOOL	fStemmedSearch;
+	BOOL	fTitleOnly;
+	BOOL	fExecute;
+	long	pszWindow; //LPCTSTR
+} HH_FTS_QUERY;
+
+typedef struct BITMAP {
+	int		bmType;
+	int		bmWidth;
+	int		bmHeight;
+	int		bmWidthBytes;
+	short	bmPlanes;
+	short	bmBitsPixel;
+	LPVOID	bmBits;
+} BITMAP;
+
+typedef struct RGBQUAD {
+	BYTE	rgbBlue; 
+	BYTE	rgbGreen; 
+	BYTE	rgbRed; 
+	BYTE	rgbReserved; 
+} RGBQUAD; 
+
+typedef struct BITMAPINFOHEADER{
+	DWORD	biSize; 
+	LONG	biWidth; 
+	LONG	biHeight; 
+	WORD	biPlanes; 
+	WORD	biBitCount; 
+	DWORD	biCompression; 
+	DWORD	biSizeImage; 
+	LONG	biXPelsPerMeter; 
+	LONG	biYPelsPerMeter; 
+	DWORD	biClrUsed; 
+	DWORD	biClrImportant; 
+} BITMAPINFOHEADER;
+
+typedef struct BITMAPINFO { 
+	BITMAPINFOHEADER	bmiHeader; 
+	RGBQUAD				bmiColors; 
+} BITMAPINFO;
+
+typedef struct LOGBRUSH { 
+	UINT		lbStyle; 
+	COLORREF	lbColor; 
+	LONG		lbHatch; 
+} LOGBRUSH;
+
+typedef struct LOGPEN { 
+	UINT		lopnStyle; 
+	POINT		lopnWidth; 
+	COLORREF	lopnColor; 
+} LOGPEN;
+
+typedef struct SIZE {
+	int	cx;
+	int	cy;
+} SIZE;
+
+typedef struct SAFEARRAYBOUND {
+	long	cElements;
+	long	lLbound;
+} SAFEARRAYBOUND;
+
+#pragma pack(2)
+typedef struct SAFEARRAY2D {
+	short	cDims;
+	short	fFeatures;
+	int		cbElements;
+	int		cLocks;
+	int		pvData;
+	SAFEARRAYBOUND Bounds[2];
+} SAFEARRAY2D;
+#pragma pack()
+
+typedef struct SAFEARRAY1D {
+	short	cDims;
+	short	fFeatures;
+	int		cbElements;
+	int		cLocks;
+	int		pvData;
+	SAFEARRAYBOUND Bounds[1];
+} SAFEARRAY1D;
+
+typedef struct SCROLLINFO { 
+	UINT	cbSize; 
+	UINT	fMask; 
+	int		nMin; 
+	int		nMax; 
+	UINT	nPage; 
+	int		nPos; 
+	int		nTrackPos; 
+} SCROLLINFO; 
+
+typedef struct CHARRANGE {
+	LONG	cpMin;
+	LONG	cpMax;
+} CHARRANGE;
+
+typedef struct FORMATRANGE {
+	HDC		hdc;
+	HDC		hdcTarget;
+	RECT	rc;
+	RECT	rcPage;
+	CHARRANGE chrg;
+} FORMATRANGE;
+
+typedef struct ACCEL {
+	BYTE	fVirt;
+	WORD	key;
+	WORD	cmd;
+} ACCEL;
+
+typedef struct MENUITEMINFO {
+	UINT		cbSize; 
+	UINT		fMask; 
+	UINT		fType; 
+	UINT		fState; 
+	UINT		wID; 
+	HMENU		hSubMenu; 
+	HBITMAP		hbmpChecked; 
+	HBITMAP		hbmpUnchecked; 
+	ULONG_PTR	dwItemData; 
+	long		dwTypeData;  //LPTSTR
+	UINT		cch; 
+//	HBITMAP		hbmpItem;
+} MENUITEMINFO;
+
+typedef struct COMBOBOXEXITEM {
+	UINT	mask;
+	INT_PTR iItem;
+	long	pszText; //LPTSTR
+	int		cchTextMax;
+	int		iImage;
+	int		iSelectedImage;
+	int		iOverlay;
+	int		iIndent;
+	LPARAM	lParam;
+} COMBOBOXEXITEM;
+
+typedef struct NMDATETIMECHANGE {
+	NMHDR	nmhdr;
+	DWORD	dwFlags;
+	SYSTEMTIME	st;
+} NMDATETIMECHANGE;
+
+typedef struct HDNMHEADER {
+	NMHDR	hdr;
+	int		iItem;
+	int		iButton;
+	long	pitem;
+} HDNMHEADER;
+
+typedef struct LVITEM { 
+	UINT	mask; 
+	int		iItem; 
+	int		iSubItem; 
+	UINT	state; 
+	UINT	stateMask; 
+	long	pszText;  //LPTSTR
+	int		cchTextMax; 
+	int		iImage; 
+	LPARAM	lParam;
+//#if (_WIN32_IE >= 0x0300)
+	int		iIndent;
+//#endif
+//#if (_WIN32_IE >= 0x560)
+  	int		iGroupId;
+  	UINT	cColumns; // tile view columns
+  	PUINT	puColumns;
+//#endif
+} LVITEM;
+
+typedef struct LVTILEINFO {
+	UINT	cbSize;
+	int		iItem;
+	UINT	cColumns;
+	PUINT	puColumns;
+} LVTILEINFO;
+
+typedef struct LVCOLUMN { 
+	UINT	mask; 
+	int		fmt; 
+	int		cx; 
+	long	pszText; //LPTSTR
+	int		cchTextMax; 
+	int		iSubItem; 
+//#if (_WIN32_IE >= 0x0300)
+	int		iImage;
+	int		iOrder;
+//#endif
+} LVCOLUMN;
+
+typedef struct LVGROUP {
+	UINT	cbSize;
+	UINT	mask;
+	long	pszHeader; //LPWSTR
+	int		cchHeader;
+	long	pszFooter; //LPWSTR
+	int		cchFooter;
+	int		iGroupId;
+	UINT	stateMask;
+	UINT	state;
+	UINT	uAlign;
+} LVGROUP;
+
+typedef struct LVFINDINFO {
+	UINT	flags;
+	long	psz; //LPCTSTR
+	LPARAM	lParam;
+	POINT	pt;
+	UINT	vkDirection;
+} LVFINDINFO;
+
+typedef struct LVBKIMAGE {
+	ULONG	ulFlags;
+	HBITMAP	hbm;
+	long	pszImage; //LPTSTR
+	UINT	cchImageMax;
+	int		xOffsetPercent;
+	int		yOffsetPercent;
+} LVBKIMAGE;
+
+typedef struct LVTILEVIEWINFO {
+	UINT	cbSize;
+	DWORD	dwMask;
+	DWORD	dwFlags;
+	SIZE	sizeTile;
+	int		cLines;
+	RECT	rcLabelMargin;
+} LVTILEVIEWINFO;
+
+typedef struct LVHITTESTINFO {
+	POINT	pt;
+	UINT	flags;
+	int		iItem;
+	int		iSubItem;
+} LVHITTESTINFO;
+
+typedef struct TPMPARAMS { 
+	UINT	cbSize; 
+	RECT	rcExclude; 
+} TPMPARAMS;
+
+typedef struct REBARBANDINFO {
+	UINT		cbSize;
+	UINT		fMask;
+	UINT		fStyle;
+	COLORREF	clrFore;
+	COLORREF	clrBack;
+	long		lpText; //LPTSTR
+	UINT		cch;
+	int			iImage;
+	HWND		hwndChild;
+	UINT		cxMinChild;
+	UINT		cyMinChild;
+	UINT		cx;
+	HBITMAP		hbmBack;
+	UINT		wID;
+//#if (_WIN32_IE >= 0x0400)
+	UINT		cyChild;  
+	UINT		cyMaxChild;
+	UINT		cyIntegral;
+	UINT		cxIdeal;
+	LPARAM		lParam;
+	UINT		cxHeader;
+//#endif
+ } REBARBANDINFO;
+
+typedef struct RBHITTESTINFO {
+    POINT pt;
+    UINT flags;
+    int iBand;
+} RBHITTESTINFO;
+
+typedef struct CHARFORMAT2 {
+	UINT cbSize;
+	DWORD dwMask;
+	DWORD dwEffects;
+	LONG yHeight;
+	LONG yOffset;
+	COLORREF crTextColor;
+	BYTE bCharSet;
+	BYTE bPitchAndFamily;
+	TCHAR szFaceName[32];
+	WORD wPad;
+	WORD wWeight;
+	SHORT sSpacing;
+	COLORREF crBackColor;
+	LCID lcid;
+	DWORD dwReserved;
+	SHORT sStyle;
+	WORD wKerning;
+	BYTE bUnderlineType;
+	BYTE bAnimation;
+	BYTE bRevAuthor;
+	BYTE bReserved1;
+} CHARFORMAT2;
+
+typedef struct PARAFORMAT2 { 
+	UINT	cbSize; 
+	DWORD	dwMask; 
+	WORD	wNumbering; 
+	WORD	wEffects; 
+	LONG	dxStartIndent; 
+	LONG	dxRightIndent; 
+	LONG	dxOffset; 
+	WORD	wAlignment; 
+	SHORT	cTabCount; 
+	LONG	rgxTabs[32]; 
+	LONG	dySpaceBefore; 
+	LONG	dySpaceAfter; 
+	LONG	dyLineSpacing; 
+	SHORT	sStyle; 
+	BYTE	bLineSpacingRule; 
+	BYTE	bOutlineLevel; 
+	WORD	wShadingWeight; 
+	WORD	wShadingStyle;
+	WORD	wNumberingStart; 
+	WORD	wNumberingStyle; 
+	WORD	wNumberingTab; 
+	WORD	wBorderSpace; 
+	WORD	wBorderWidth; 
+	WORD	wBorders; 
+} PARAFORMAT2; 
+
+typedef struct TEXTRANGE {
+	CHARRANGE	chrg;
+	long		lpstrText; //LPSTR
+} TEXTRANGE;
+
+typedef struct EDITSTREAM {
+	DWORD		dwCookie;
+	DWORD		dwError;
+	EDITSTREAMCALLBACK	pfnCallback;
+} EDITSTREAM;
+
+typedef struct FINDTEXTEX {
+	CHARRANGE	chrg;
+	long		lpstrText; //LPCTSTR
+	CHARRANGE	chrgText;
+} FINDTEXTEX;
+
+typedef struct DOCINFO { 
+	int		cbSize; 
+	long	lpszDocName;  //LPCTSTR
+	long	lpszOutput; //LPCTSTR
+	long	lpszDatatype; //LPCTSTR
+	DWORD	fwType; 
+} DOCINFO;
+
+typedef struct TCITEM {  
+	UINT	mask;
+//#if (_WIN32_IE >= 0x0300)
+	DWORD	dwState;
+	DWORD	dwStateMask;
+//#else
+//	UINT	lpReserved1;
+//	UINT	lpReserved2;
+//#endif
+	long	pszText; //LPTSTR
+	int		cchTextMax;
+	int		iImage;
+	LPARAM	lParam;
+	long    lpKey;
+} TCITEM;
+
+typedef struct TCHITTESTINFO {
+	POINT	pt;
+	UINT	flags;
+} TCHITTESTINFO;
+
+typedef struct TBBUTTON {
+	int		iBitmap; 
+	int		idCommand; 
+	BYTE	fsState; 
+	BYTE	fsStyle; 
+//#ifdef _WIN64
+//	BYTE	bReserved[6];     // padding for alignment
+//#elif defined(_WIN32)
+	BYTE	bReserved[2];     // padding for alignment
+//#endif
+	DWORD_PTR	dwData; 
+	INT_PTR		iString; 
+} TBBUTTON;
+
+typedef struct TBBUTTONINFO {
+	UINT		cbSize;
+	DWORD		dwMask;
+	int			idCommand;
+	int			iImage;
+	BYTE		fsState;
+	BYTE		fsStyle;
+	WORD		cx;
+	DWORD_PTR	lParam;
+	long		pszText; //LPTSTR
+	int			cchText;
+} TBBUTTONINFO;
+
+typedef struct TVITEMEX {
+	UINT		mask;
+	HTREEITEM	hItem;
+	UINT		state;
+	UINT		stateMask;
+	long		pszText; //LPTSTR
+	int			cchTextMax;
+	int			iImage;
+	int			iSelectedImage;
+	int			cChildren;
+	LPARAM		lParam;
+	int			iIntegral;
+} TVITEMEX;
+
+typedef struct TVHITTESTINFO {
+	POINT		pt;
+	UINT		flags;
+	HTREEITEM	hItem;
+} TVHITTESTINFO;
+
+typedef struct TVINSERTSTRUCT {
+	HTREEITEM	hParent;
+	HTREEITEM	hInsertAfter;
+	TVITEMEX	itemex;
+} TVINSERTSTRUCT;
+
+typedef struct NMUPDOWN {
+	NMHDR	hdr;
+	int		iPos;
+	int		iDelta;
+} NMUPDOWN;
+
+typedef struct UDACCEL {
+	UINT	nSec;
+	UINT	nInc;
+} UDACCEL;
+
+typedef struct SHFILEINFO {
+    long	hIcon;
+	long	iIcon;
+    long	dwAttributes;
+	long	szDisplayName; //LPSTR
+	long	szTypeName; //LPSTR
+} SHFILEINFO;
+
+
+
+typedef struct POINTF
+{
+	FLOAT X;
+    FLOAT Y;
+} POINTF;
+
+typedef struct MSG 
+{
+	HWND hWnd;
+	UINT Message; 
+	WPARAM wParam; 
+	LPARAM lParam; 
+	DWORD Time; 
+	POINT Pt; 
+} MSG;
+
+typedef struct CONTROLINFO 
+{
+	//ULONG  cb;
+	LONG  cb;
+      // HACCEL hAccel;
+      LONG hAccel;
+      // USHORT cAccel;
+	LONG cAccel;
+	DWORD  dwFlags;
+} CONTROLINFO;
+
+typedef struct OLEVERBSTRUCT 
+{
+	LONG    lVerb;
+      //LPOLESTR  lpszVerbName;
+      LONG  lpszVerbName;
+      DWORD   fuFlags;
+      DWORD grfAttribs;
+} OLEVERBSTRUCT;
+
+typedef struct OLEINPLACEFRAMEINFO // OleInPlaceFrameInfo
+{
+	//UINT    cb;
+	long    cb;
+    	BOOL    fMDIApp;
+    	HWND    hWndFrame;
+    	//HACCEL  haccel;
+    	long  hAccel;
+    	//UINT    cAccelEntries;
+    	long    cAccelEntries;
+} OLEINPLACEFRAMEINFO;
+
+typedef struct OLEMENUGROUPWIDTHS
+{
+	LONG    Width[6];
+} OLEMENUGROUPWIDTHS;
+
+typedef struct CALPOLESTR 
+{
+	ULONG cElems;
+      //LPOLESTR * pElems;
+	DWORD pElems;
+} CALPOLESTR;
+
+typedef struct CADWORD
+{
+	ULONG cElems;
+      //DWORD * pElems;
+	DWORD pElems;
+} CADWORD;
+
+typedef struct TYPEDESC 
+{
+	long lpItemDesc;
+	short vt;
+} TYPEDESC;
+
+
+//typedef struct tagARRAYDESC{
+//	TYPEDESC tdescElem; 		// Element type. 
+//	//unsigned short cDims; 		// Dimension count. 
+//	short cDims;
+//	SAFEARRAYBOUND rgbounds[1]; 	// Variable length array containing 
+//							// one element for each dimension.
+//	//long lprgbounds;					    		
+//} ARRAYDESC;
+
+
+typedef struct PARAMDESCEX {
+    	//ULONG cBytes;               
+    	LONG cBytes;               
+    	LONG dwReserved;               
+    	//VARIANTARG varDefaultValue; 
+	VARIANT varDefaultValue; 
+} PARAMDESCEX;
+
+typedef struct PARAMDESC {
+    	//LPPARAMDESCEX pparamdescex; 
+	long lpParamDescEx; 
+    	//USHORT wParamFlags;         
+	short wParamFlags;         
+
+} PARAMDESC;
+
+typedef struct IDLDESC 
+{
+	ULONG dwReserved;
+	USHORT wIDLFlags;
+} IDLDESC;
+
+typedef struct TYPEATTR {
+	GUID typeguid;       
+	LCID typelcid;          
+	long  dwReserved;
+	MEMBERID memidConstructor;  
+	MEMBERID memidDestructor;   
+	//LPOLESTR lpstrSchema;
+	long lpstrSchema;
+	DWORD cbSizeInstance;    
+	TYPEKIND typekind;     
+	WORD cFuncs;        
+	WORD cVars;         
+	WORD cImplTypes;        
+	WORD cbSizeVft;     
+	WORD cbAlignment;       
+	WORD wTypeFlags;
+	WORD wMajorVerNum;
+	WORD wMinorVerNum;      
+	TYPEDESC tdescAlias;   
+	IDLDESC idldescType;
+} TYPEATTR;
+
+typedef struct ELEMDESC {    
+    	TYPEDESC tdesc;           
+    	PARAMDESC ParamDesc;      
+
+} ELEMDESC;
+
+typedef struct FUNCDESC {
+    	MEMBERID MemID;
+    	//[size_is(cScodes)] SCODE * lprgscode;
+	long lprgSCode;
+    	//[size_is(cParams)] ELEMDESC * lprgelemdescParam; /* array of param types */
+	long lprgElemDescParam;
+    	FUNCKIND FuncKind;
+    	INVOKEKIND InvKind;
+    	CALLCONV CallConv;
+    	SHORT cParams;
+    	SHORT cParamsOpt;
+    	SHORT oVft;
+    	SHORT cScodes;
+    	ELEMDESC ElemDescFunc;
+    	WORD wFuncFlags;
+} FUNCDESC;
+
+typedef struct VARDESC 
+{ 
+	MEMBERID memid; 
+	//OLECHAR FAR* lpstrSchema; // Reserved for future use. 
+	long lpstrSchema;
+	//union { 
+		// VAR_PERINSTANCE, the offset of this 
+		// variable within the instance. 
+		//unsigned long oInst; 
+
+		// VAR_CONST, the value of the constant. 
+		// VARIANT FAR* lpvarValue; 
+		long lpVarValue; 
+
+	//} UNION_NAME(u); 
+	ELEMDESC ElemDescVar; 
+	short wVarFlags; 
+	VARKIND varkind;
+
+} VARDESC;
+
+// Storage stat buffer 
+//typedef struct STATSTG 
+//{
+//	LPOLESTR pwcsName;
+//      DWORD type;
+//      CURRENCY cbSize;
+//      CURRENCY mtime;
+//      CURRENCY ctime;
+//     CURRENCY atime;
+//      DWORD grfMode;
+//      DWORD grfLocksSupported;
+//      CLSID clsid;
+//      DWORD grfStateBits;
+//	DWORD reserved;
+//} STATSTG;
+
+
+typedef struct DISPPARAMS
+{
+	//VARIANTARG FAR* rgvarg; 
+	long rgvarg; 
+	DISPID rgdispidNamedArgs; 
+	//unsigned int cArgs; 
+	long cArgs;
+	//unsigned int cNamedArgs; 
+	long cNamedArgs;
+} DISPPARAMS;
+
+typedef struct TLIBATTR 
+{
+	GUID guid;
+      LCID lcid;
+      SYSKIND syskind;
+      WORD wMajorVerNum;
+      WORD wMinorVerNum;
+      WORD wLibFlags;
+} TLIBATTR;
+
+typedef struct PROPPAGEINFO 
+{
+	//ULONG    cb;
+	LONG    cb;
+      //LPOLESTR pszTitle;
+      LONG    pszTitle;
+      SIZE     size;
+      //LPOLESTR pszDocString;
+      LONG pszDocString;
+      //LPOLESTR pszHelpFile;
+      LONG pszHelpFile;
+      DWORD    dwHelpContext;
+} PROPPAGEINFO;
+
+typedef struct CAUUID {
+	LONG cElems;
+	LONG pElems;
+} CAUUID;
+
+
+//=============================================================
+// SHITEMID -- Item ID
+
+typedef struct SHITEMID         // mkid
+{
+    USHORT      cb;         // Size of the ID (including cb itself)
+    BYTE        abID[1];    // The item ID (variable length)
+} SHITEMID;
+
+//=============================================================
+// ITEMIDLIST -- List if item IDs (combined with 0-terminator)
+
+typedef struct ITEMIDLIST       // idl
+{
+    SHITEMID    mkid;
+} ITEMIDLIST;
+
+// typedef UNALIGNED ITEMIDLIST * LPITEMIDLIST;
+// typedef const UNALIGNED ITEMIDLIST * LPCITEMIDLIST;
+//typedef LONG LPITEMIDLIST;
+//typedef LONG LPCITEMIDLIST;
+
+
+//=============================================================
+// struct STRRET
+// structure for returning strings from IShellFolder member functions
+// (turned into enum so that the constants and their 
+//  values are accessable outside the typelib)
+/*
+typedef enum tagESTRRET
+{
+    STRRET_WSTR   = 0x0000,         // Use STRRET.pOleStr
+    STRRET_OFFSET = 0x0001,         // Use STRRET.uOffset to Ansi
+    STRRET_CSTR   = 0x0002,         // Use STRRET.cStr
+} ESTRRET;
+
+typedef struct STRRET
+{
+    ESTRRET uType;      // One of the STRRET_* values
+    BYTE cStr[260];     // buffer to rcv largest member of the union
+
+//  vb doesn't like unions (a cross btw an enum & struct?)
+//    union
+//    {
+//        LPWSTR          pOleStr;        // OLESTR that will be freed
+//        LPSTR           pStr;           // ANSI string that will be freed (needed?)
+//        UINT            uOffset;        // Offset into SHITEMID
+//        char            cStr[260];      // Buffer to fill in (ANSI)
+//    } DUMMYUNIONNAME;
+
+} STRRET;
+
+typedef STRRET *LPSTRRET;
+*/

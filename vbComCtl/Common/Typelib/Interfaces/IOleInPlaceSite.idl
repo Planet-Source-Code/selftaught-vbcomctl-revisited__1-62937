@@ -1,0 +1,85 @@
+////////////////////////////////////////////////////////////
+// Name : IOleInPlaceSite.odl
+// Author : Paul R. Wilde
+// Created : 23rd April 1999
+/////////////////////////////////////////////////////////////
+// Copyright © Paul R. Wilde 1999. All Rights Reserved.
+/////////////////////////////////////////////////////////////
+// Bug reports, suggestions & comments should be emailed to :
+// prw.exponential@dial.pipex.com
+/////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+// Revision history
+/////////////////////////////////////////////////////////////
+// 23/04/99
+// Initial development
+/////////////////////////////////////////////////////////////
+
+
+[
+    	uuid(00000119-0000-0000-C000-000000000046),
+	odl
+]
+
+interface IOleInPlaceSite : IOleWindow
+{
+
+    	typedef IOleInPlaceSite *LPOLEINPLACESITE;
+
+    	HRESULT CanInPlaceActivate
+    	(
+        	void
+    	);
+
+    	HRESULT OnInPlaceActivate
+    	(
+        	void
+    	);
+
+    	HRESULT OnUIActivate
+    	(
+        	void
+    	);
+
+    	HRESULT GetWindowContext
+    	(
+        	[out] IOleInPlaceFrame **ppFrame,
+        	[out] IOleInPlaceUIWindow **ppDoc,
+        	[out] LPRECT lprcPosRect,
+        	[out] LPRECT lprcClipRect,
+        	[in, out] LPOLEINPLACEFRAMEINFO lpFrameInfo
+    	);
+
+    	HRESULT Scroll
+    	(
+        	//[in] SIZE scrollExtant
+		[in] long lpScrollExtant
+
+    	);
+
+    	HRESULT OnUIDeactivate
+    	(
+        	[in] BOOL fUndoable
+    	);
+
+    	HRESULT OnInPlaceDeactivate
+    	(
+        	void
+    	);
+
+    	HRESULT DiscardUndoState
+    	(
+        	void
+    	);
+
+    	HRESULT DeactivateAndUndo
+    	(
+        	void
+    	);
+
+    	HRESULT OnPosRectChange
+    	(
+        	[in] LPRECT lprcPosRect
+    	);
+}

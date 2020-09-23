@@ -1,0 +1,12 @@
+[dllname("HHCTRL.OCX")]
+
+module HHCTRL {
+
+	[entry("HtmlHelpA")]
+	long HtmlHelp(
+				[in] long hWnd,
+				[in] void* lpHelpFile,
+				[in] long wCommand,
+				[in] void* dwData);
+
+}
